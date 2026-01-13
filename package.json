@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+=======
+  "homepage": "https://Yordlesolitaire.github.io/SOE",
+>>>>>>> 23915cddc930a6cedc77bcd3ec8160f7ce1e0ee0
   "name": "site",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +20,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+<<<<<<< HEAD
     "eject": "react-scripts eject"
+=======
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+>>>>>>> 23915cddc930a6cedc77bcd3ec8160f7ce1e0ee0
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +45,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
+=======
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+>>>>>>> 23915cddc930a6cedc77bcd3ec8160f7ce1e0ee0
   }
 }
