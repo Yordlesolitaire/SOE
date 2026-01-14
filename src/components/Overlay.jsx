@@ -11,6 +11,8 @@ const LINKS = [
     { name: "Races", path: "/races", icon: "🧬" },
     { name: "Quêtes", path: "/quetes", icon: "📜" },
     { name: "Objets", path: "/objets", icon: "⚔️" },
+    { name: "Outils", path: "/outils", icon: "⚔️" },
+    { name: "Paramètres", path: "/parametre", icon: "⚔️" },
 ];
 
 
@@ -74,5 +76,8 @@ function MobileLayout() {
         </div>
     );
 }
+
+
+
 
 export default MobileLayout;

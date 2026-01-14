@@ -7,7 +7,7 @@
 html,body{
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-color: #1a0e05   ;
 }
 
 
@@ -103,7 +103,7 @@ header nav {
     gap: 5px;
     top: 110%;
     right: 0;
-    width: 5rem;
+    width: 7rem;
     background: #3A2618;
     border: 2px solid #a17845;
     overflow: hidden;
@@ -119,7 +119,9 @@ header nav {
 
 .dropdown a button{
     width: 100%;
-    background: none;
+    height: 2rem;
+    background: transparent;
+    font-size: large;
     border: solid 1px transparent;
     color: #a17845;
     transition: all 0.2s ease-in-out;
