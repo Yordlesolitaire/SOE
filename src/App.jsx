@@ -1,12 +1,15 @@
 import "./style.css"
-import { Header,Main } from "./components/Overlay";
+import { Header } from "./components/Overlay";
+//import { useState } from "react";
+
 function App() {
-  return (
-    <>
-      <Header></Header>
-      <Main></Main>
-    </>
-  );
+    //const [asideOpen, setAsideOpen] = useState(false);
+
+    return (
+        <>
+            <Header/>
+        </>
+    );
 }
 
 export default App;

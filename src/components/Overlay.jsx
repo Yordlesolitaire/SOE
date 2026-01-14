@@ -1,14 +1,78 @@
-export function Header(){
-    return(
-    <header>
-        <h1>Shadows of Erdalorn</h1>
-        <nav></nav>
-    </header>
+// import { Link } from "react-router-dom";
+import { useMediaQuery } from "./useMediaQuery"
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+
+
+const LINKS = [
+    { name: "Accueil", path: "/", icon: "🏠" },
+    { name: "Classes", path: "/classes", icon: "🛡️" },
+    { name: "Races", path: "/races", icon: "🧬" },
+    { name: "Quêtes", path: "/quetes", icon: "📜" },
+    { name: "Objets", path: "/objets", icon: "⚔️" },
+];
+
+
+export function Header() {
+    const isMobile = useMediaQuery("(max-width: 768px)");
+    return (
+        <header className="header">
+            
+            <h1>Shadows of Erdalorn</h1>
+
+            {isMobile ? (
+                <MobileLayout />
+            ) : (
+                null
+            )}
+        </header>
     );
 }
 
-export function Main(){
-    return(
-        <main></main>
-    )
+
+
+
+function MobileLayout() {
+    const [open, setOpen] = useState(false);
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    return (
+        <div className="mobile-menu" ref={menuRef}>
+            <button
+                className={`hamburger-btn ${open ? "open" : ""}`}
+                onClick={() => setOpen(o => !o)}
+                aria-label="Menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div className={`dropdown ${open ? "open" : ""}`}>
+                {LINKS.map(link => (
+                <Link key={link.path} to={link.path}>
+                    <button type="button" onClick={() => setOpen(false)}>
+                        <span className="text">{link.name}</span>
+                    </button>
+                </Link>
+            ))}
+            </div>
+        </div>
+    );
 }
+
+export default MobileLayout;

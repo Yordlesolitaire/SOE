@@ -4,38 +4,137 @@
     box-sizing: border-box;
 }
 
-#root{
-    width: 100%;
-    height: 100%;
-}
-
 html,body{
-    width: 100%;
     height: 100%;
+    width: 100%;
     background-color: black;
-    overflow: hidden;
 }
 
+
+
+/* ---------- HEADER ---------- */
 header{
     width: 100%;
-    height: 3rem;
-    background-color: #3A2618;
-    border-bottom: solid 2px #C9A24D;
-    padding: 0rem 1rem;
+    height: 3.5rem;
+    background: linear-gradient(45deg,#3A2618,#502d14,#3A2618  ) ;
     display: flex;
-    flex-direction: row;
+    padding: 0rem 1rem;
     align-items: center;
     justify-content: space-between;
+    border-bottom: solid 2px #a17845;
 }
 
 header h1{
-    color: #C9A24D;
     font-family: "Cinzel",serif;
+    color: #a17845;
     font-size: clamp(1.2rem, 4vw, 2rem);
 }
 
-main{
-    width: 100%;
+
+header nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mobile-menu {
+    position: relative;
     height: 100%;
-    background-color: #2A1A12;
+    width: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-btn {
+    position: relative;      /* nécessaire pour les spans absolus */
+    display: inline-block;
+    aspect-ratio: 1 / 1;     /* carré */
+    width: 3rem;             /* on fixe une taille de référence */
+    background: transparent;        /* couleur visible */
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Les barres */
+.hamburger-btn span {
+    position: absolute;
+    left: 50%;
+    width: 60%;              /* barre relative au carré */
+    height: 0.2rem;
+    background: #a17845;
+    border-radius: 2px;
+    transform: translateX(-50%); /* centre horizontalement */
+    transition: all 0.3s ease;
+}
+
+/* Position initiale */
+.hamburger-btn span:nth-child(1) {
+    top: 25%;
+}
+.hamburger-btn span:nth-child(2) {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.hamburger-btn span:nth-child(3) {
+    bottom: 25%;
+}
+
+/* Transformation en croix */
+.hamburger-btn.open span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.hamburger-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-btn.open span:nth-child(3) {
+    bottom: auto;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Conteneur menu */
+.dropdown {
+    position: absolute;
+    padding: 5px;
+    gap: 5px;
+    top: 110%;
+    right: 0;
+    width: 5rem;
+    background: #3A2618;
+    border: 2px solid #a17845;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown a button{
+    width: 100%;
+    background: none;
+    border: solid 1px transparent;
+    color: #a17845;
+    transition: all 0.2s ease-in-out;
+    padding: 1px;
+}
+
+.dropdown a button:hover{
+    background-color: rgba(26, 14, 5, 0.5);
+    border-top-color:#a17845 ;
+    border-bottom-color: #a17845;
+}
+
+/* Menu ouvert */
+.dropdown.open {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
 }
