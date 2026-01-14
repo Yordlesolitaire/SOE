@@ -22,11 +22,16 @@ header{
     background-color: #3A2618;
     border-bottom: solid 2px #C9A24D;
     padding: 0rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 header h1{
     color: #C9A24D;
     font-family: "Cinzel",serif;
+    font-size: clamp(1.2rem, 4vw, 2rem);
 }
 
 main{
