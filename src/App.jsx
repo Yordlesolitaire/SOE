@@ -1,7 +1,8 @@
 import "./style.css"
 function App() {
   return (
-    <h1>Yooo</h1>
+    <header>
+    </header>
   );
 }
 
