@@ -1,41 +1,71 @@
+/* ================= VARIABLES ================= */
+:root {
+    --color-bg: #1d140c;             /* Fond général */
+    --color-header-bg: linear-gradient(45deg,#372516,#6a482c,#372516); /* Fond header */
+    --color-border: #8b823e;         /* Bordures et accent */
+    --color-text: #8b823e   ;           /* Texte principal */
+    --color-dropdown-bg: #3A261C;    /* Fond du menu dropdown */
+    --color-dropdown-hover: rgba(26, 14, 5, 0.5); /* Hover du menu dropdown */
+}
+
+/* ================= RESET ================= */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-html,body{
+html, body{
     height: 100%;
     width: 100%;
-    background-color: #1a0e05   ;
+    background-color: var(--color-bg); /* Fond général */
 }
 
-
-
-/* ---------- HEADER ---------- */
+/* ================= HEADER ================= */
 header{
     width: 100%;
     height: 3.5rem;
-    background: linear-gradient(45deg,#3A2618,#502d14,#3A2618  ) ;
+    background: var(--color-header-bg); /* Fond header */
     display: flex;
-    padding: 0rem 1rem;
+    padding: 0 1rem;
     align-items: center;
     justify-content: space-between;
-    border-bottom: solid 2px #a17845;
+    border-bottom: solid 2px var(--color-border); /* Bordure du header */
 }
 
 header h1{
-    font-family: "Cinzel",serif;
-    color: #a17845;
+    font-family: "Cinzel", serif;
+    color: var(--color-text); /* Couleur titre */
     font-size: clamp(1.2rem, 4vw, 2rem);
 }
-
 
 header nav {
     display: flex;
     gap: 0.5rem;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Boutons du nav header */
+header nav a button{
+    box-sizing: initial;
+    padding: 5px;
+    border: solid 2px var(--color-border); /* Bordure bouton */
+    border-radius: 0.5rem;
+    background-color: var(--color-dropdown-bg); /* Fond bouton */
+    color: var(--color-text); /* Couleur texte bouton */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+header nav a button:hover{
+    background-color: var(--color-text); /* Fond hover */
+    color: var(--color-dropdown-bg);      /* Texte hover */
+    border-color: var(--color-dropdown-bg); /* Bordure hover */
+}
+
+/* ================= MOBILE MENU ================= */
 .mobile-menu {
     position: relative;
     height: 100%;
@@ -48,55 +78,41 @@ header nav {
 }
 
 .hamburger-btn {
-    position: relative;      /* nécessaire pour les spans absolus */
+    visibility: visible;
+    opacity: 1;
+    position: relative;      
     display: inline-block;
-    aspect-ratio: 1 / 1;     /* carré */
-    width: 3rem;             /* on fixe une taille de référence */
-    background: transparent;        /* couleur visible */
+    aspect-ratio: 1 / 1;     
+    width: 3rem;             
+    background: transparent;  
     border: none;
     cursor: pointer;
     padding: 0;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Les barres */
+/* Les barres du hamburger */
 .hamburger-btn span {
     position: absolute;
     left: 50%;
-    width: 60%;              /* barre relative au carré */
+    width: 60%;
     height: 0.2rem;
-    background: #a17845;
+    background: var(--color-text); /* Couleur barre hamburger */
     border-radius: 2px;
-    transform: translateX(-50%); /* centre horizontalement */
+    transform: translateX(-50%);
     transition: all 0.3s ease;
 }
 
-/* Position initiale */
-.hamburger-btn span:nth-child(1) {
-    top: 25%;
-}
-.hamburger-btn span:nth-child(2) {
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-.hamburger-btn span:nth-child(3) {
-    bottom: 25%;
-}
+.hamburger-btn span:nth-child(1) { top: 25%; }
+.hamburger-btn span:nth-child(2) { top: 50%; transform: translate(-50%, -50%); }
+.hamburger-btn span:nth-child(3) { bottom: 25%; }
 
 /* Transformation en croix */
-.hamburger-btn.open span:nth-child(1) {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-.hamburger-btn.open span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger-btn.open span:nth-child(3) {
-    bottom: auto;
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-}
+.hamburger-btn.open span:nth-child(1) { top: 50%; transform: translate(-50%, -50%) rotate(45deg); }
+.hamburger-btn.open span:nth-child(2) { opacity: 0; }
+.hamburger-btn.open span:nth-child(3) { bottom: auto; top: 50%; transform: translate(-50%, -50%) rotate(-45deg); }
 
-/* Conteneur menu */
+/* ================= DROPDOWN ================= */
 .dropdown {
     position: absolute;
     padding: 5px;
@@ -104,8 +120,8 @@ header nav {
     top: 110%;
     right: 0;
     width: 7rem;
-    background: #3A2618;
-    border: 2px solid #a17845;
+    background: var(--color-dropdown-bg); /* Fond menu dropdown */
+    border: 2px solid var(--color-border); /* Bordure menu */
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -123,15 +139,15 @@ header nav {
     background: transparent;
     font-size: large;
     border: solid 1px transparent;
-    color: #a17845;
+    color: var(--color-text); /* Couleur texte menu */
     transition: all 0.2s ease-in-out;
     padding: 1px;
 }
 
 .dropdown a button:hover{
-    background-color: rgba(26, 14, 5, 0.5);
-    border-top-color:#a17845 ;
-    border-bottom-color: #a17845;
+    background-color: var(--color-dropdown-hover); /* Hover menu */
+    border-top-color: var(--color-border);
+    border-bottom-color: var(--color-border);
 }
 
 /* Menu ouvert */

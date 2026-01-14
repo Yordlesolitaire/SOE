@@ -26,7 +26,7 @@ export function Header() {
             {isMobile ? (
                 <MobileLayout />
             ) : (
-                null
+                <DesktopLayout />
             )}
         </header>
     );
@@ -77,7 +77,17 @@ function MobileLayout() {
     );
 }
 
-
-
-
-export default MobileLayout;
+function DesktopLayout(){
+    return (
+    <nav>
+        {LINKS.map(link => (
+                <Link key={link.path} to={link.path}>
+                    <button type="button">
+                        <span className="text">{link.name}</span>
+                    </button>
+                </Link>
+            ))}
+    </nav>
+)
+    
+}
