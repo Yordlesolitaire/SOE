@@ -1,8 +1,10 @@
 import "./style.css"
 function App() {
   return (
-    <header>
-    </header>
+    <>
+      <header><h1>Shadows of Erdalorn</h1><nav></nav></header>
+      <main></main>
+    </>
   );
 }
 
