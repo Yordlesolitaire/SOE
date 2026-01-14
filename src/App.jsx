@@ -1,9 +1,10 @@
 import "./style.css"
+import { Header,Main } from "./components/Overlay";
 function App() {
   return (
     <>
-      <header><h1>Shadows of Erdalorn</h1><nav></nav></header>
-      <main></main>
+      <Header></Header>
+      <Main></Main>
     </>
   );
 }
