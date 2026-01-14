@@ -1,9 +1,9 @@
 /* ================= VARIABLES ================= */
 :root {
     --color-bg: #1d140c;             /* Fond général */
-    --color-header-bg: linear-gradient(45deg,#372516,#6a482c,#372516); /* Fond header */
-    --color-border: #8b823e;         /* Bordures et accent */
-    --color-text: #8b823e   ;           /* Texte principal */
+    --color-header-bg: linear-gradient(45deg,#655f2d,#8d844d,#655f2d); /* Fond header */
+    --color-border: #7c9b89;         /* Bordures et accent */
+    --color-text: #7c9b89   ;           /* Texte principal */
     --color-dropdown-bg: #3A261C;    /* Fond du menu dropdown */
     --color-dropdown-hover: rgba(26, 14, 5, 0.5); /* Hover du menu dropdown */
 }
