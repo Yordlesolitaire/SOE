@@ -1,9 +1,9 @@
 /* ================= VARIABLES ================= */
 :root {
-    --color-bg: #1d140c;             /* Fond général */
-    --color-header-bg: linear-gradient(45deg,#655f2d,#8d844d,#655f2d); /* Fond header */
-    --color-border: #7c9b89;         /* Bordures et accent */
-    --color-text: #7c9b89   ;           /* Texte principal */
+    --color-bg: #372516;             /* Fond général */
+    --color-header-bg: linear-gradient(45deg,#252d22,#54511f,#252d22    ); /* Fond header */
+    --color-border: #8d844d;         /* Bordures et accent */
+    --color-text: #8d844d   ;           /* Texte principal */
     --color-dropdown-bg: #3A261C;    /* Fond du menu dropdown */
     --color-dropdown-hover: rgba(26, 14, 5, 0.5); /* Hover du menu dropdown */
 }
@@ -51,18 +51,20 @@ header nav {
 header nav a button{
     box-sizing: initial;
     padding: 5px;
-    border: solid 2px var(--color-border); /* Bordure bouton */
-    border-radius: 0.5rem;
-    background-color: var(--color-dropdown-bg); /* Fond bouton */
+    border: solid 2px transparent; /* Bordure bouton */
+    background-color: transparent; /* Fond bouton */
     color: var(--color-text); /* Couleur texte bouton */
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius:0.5rem ;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    font-weight: bolder;
+    font-size: large;
 }
 
 header nav a button:hover{
-    background-color: var(--color-text); /* Fond hover */
-    color: var(--color-dropdown-bg);      /* Texte hover */
-    border-color: var(--color-dropdown-bg); /* Bordure hover */
+    border-bottom-color: var(--color-text); /* Bordure hover */
+    background-color: var(--color-dropdown-bg);
 }
 
 /* ================= MOBILE MENU ================= */
@@ -119,13 +121,14 @@ header nav a button:hover{
     gap: 5px;
     top: 110%;
     right: 0;
-    width: 7rem;
+    width: 10rem;
     background: var(--color-dropdown-bg); /* Fond menu dropdown */
     border: 2px solid var(--color-border); /* Bordure menu */
     overflow: hidden;
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
+    
 
     max-height: 0;
     opacity: 0;
@@ -134,6 +137,7 @@ header nav a button:hover{
 }
 
 .dropdown a button{
+    font-weight: bolder;
     width: 100%;
     height: 2rem;
     background: transparent;
@@ -142,6 +146,7 @@ header nav a button:hover{
     color: var(--color-text); /* Couleur texte menu */
     transition: all 0.2s ease-in-out;
     padding: 1px;
+    font-family: "Cinzel", serif;
 }
 
 .dropdown a button:hover{
