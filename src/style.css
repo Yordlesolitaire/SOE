@@ -7,6 +7,7 @@
     --color-dropdown-bg: #3A261C;         /* Fond du menu dropdown */
     --color-dropdown-hover: #1a0e0580;    /* Hover du menu dropdown */
     --font:"Cinzel", serif;
+    --radial-grad-bg: radial-gradient(circle,#502d14 0%, #29170a 100%);
 }
 
 /* ================= RESET ================= */
@@ -299,7 +300,7 @@ header nav a button:hover {
 
 /* ================= main ================= */
 main{
-    background-color: var(--color-bg);
+    background: var(--radial-grad-bg);
     width: 100%;
     height: 100%;
     padding: 0.5rem 6rem ;

@@ -2,6 +2,7 @@ import "./style.css"
 import { Header } from "./components/Overlay";
 import { Route,Routes } from "react-router-dom";
 import ASIDE from "./components/Aside";
+import Params from "./pages/params/Params";
 //import { useState } from "react";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
                         <Route path="/codex" element={<h1>Codex</h1>} />
                         <Route path="/outils" element={<h1>Outils</h1>} />
                         <Route path="/historique" element={<h1>Historique</h1>} />
-                        <Route path="/parametre" element={<h1>Paramètres</h1>} />
+                        <Route path="/parametre" element={<Params/>} />
                         {/* 404 */}
                         <Route path="*" element={<h1>Page introuvable</h1>} />
                     </Routes>
