@@ -1,8 +1,10 @@
-import "./style.css"
-import { Header } from "./components/Overlay";
+import { Header } from "./components/Header/Header";
 import { Route,Routes } from "react-router-dom";
-import ASIDE from "./components/Aside";
-import Params from "./pages/params/Params";
+import Aside from "./components/Aside/Aside";
+import styles from "./App.module.css"
+import "./style/reset.css";
+import "./style/variables.css";
+
 //import { useState } from "react";
 
 function App() {
@@ -11,9 +13,9 @@ function App() {
     return (
         <>
             <Header/>
-            <div className="content">
-                <ASIDE/>
-                <main>
+            <div className={styles.content}>
+                <Aside/>
+                <main className={styles.main}>
                     <Routes>
                         <Route path="/" element={<h1>Accueil</h1>} />
                         <Route path="/classes" element={<h1>Classes</h1>}/>
@@ -22,10 +24,10 @@ function App() {
                         <Route path="/codex" element={<h1>Codex</h1>} />
                         <Route path="/outils" element={<h1>Outils</h1>} />
                         <Route path="/historique" element={<h1>Historique</h1>} />
-                        <Route path="/parametre" element={<Params/>} />
+                        <Route path="/parametre" element={<h1>Paramètres</h1>} />
                         {/* 404 */}
                         <Route path="*" element={<h1>Page introuvable</h1>} />
-                    </Routes>
+                    </Routes>   
                 </main>
             </div>
         </>
