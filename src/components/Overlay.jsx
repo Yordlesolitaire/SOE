@@ -31,10 +31,6 @@ export function Header() {
         </header>
     );
 }
-
-
-
-
 function MobileLayout() {
     const [open, setOpen] = useState(false);
     const menuRef = useRef(null);
@@ -91,3 +87,7 @@ function DesktopLayout(){
 )
     
 }
+
+
+
+

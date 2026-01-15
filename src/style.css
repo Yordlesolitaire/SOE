@@ -18,7 +18,7 @@
 html, body{
     height: 100%;
     width: 100%;
-    background-color: var(--color-bg); /* Fond général */
+    background-color: black; /* Fond général */
 }
 
 /* ================= HEADER ================= */
@@ -160,4 +160,55 @@ header nav a button:hover{
     max-height: 300px;
     opacity: 1;
     transform: translateY(0);
+}
+
+
+
+
+
+
+#root{
+    width: 100%;
+    height: 100%;
+}
+
+
+.content{
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.content aside{
+    position: absolute;
+    width: 5rem;
+    height: 100%;
+    background:var(--color-header-bg) ;
+    border-right: solid 2px var(--color-border);
+}
+
+.content main{
+    height: 100%;
+    width: 100%;
+    background: var(--color-bg);
+}
+
+.nav_button{
+    position: absolute;
+    height: 5vh;
+    aspect-ratio: 1/1;
+    left: 100%;
+    top: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transform: translateY(-50%);
+}
+
+
+@media (max-width: 768px) {
+    /* styles pour mobile */
+    .content aside{
+        width: 0;
+    }
 }
