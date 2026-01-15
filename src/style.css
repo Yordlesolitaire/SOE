@@ -1,27 +1,28 @@
 /* ================= VARIABLES ================= */
 :root {
-    --color-bg: #372516;                  /* Fond général */
-    --color-header-bg: linear-gradient(45deg,#252d22,#54511f,#252d22); /* Fond header */
-    --color-border: #8d844d;              /* Bordures et accent */
-    --color-text: #8d844d;                /* Texte principal */
-    --color-dropdown-bg: #3A261C;         /* Fond du menu dropdown */
-    --color-dropdown-hover: #1a0e0580;    /* Hover du menu dropdown */
-    --font:"Cinzel", serif;
+    --color-bg: #372516;
+    --color-header-bg: linear-gradient(45deg,#252d22,#54511f,#252d22);
+    --color-border: #8d844d;
+    --color-text: #8d844d;
+    --color-dropdown-bg: #3A261C;
+    --color-dropdown-hover: #1a0e0580;
+
+    --font: "Cinzel", serif;
     --radial-grad-bg: radial-gradient(circle,#502d14 0%, #29170a 100%);
-    --header_height:3.5rem;
+    --header_height: 3.5rem;
 }
 
 /* ================= RESET ================= */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 html, body {
-    height: 100%;
     width: 100%;
-    background-color: black; /* Fond général */
+    height: 100%;
+    background: black;
     overflow: auto;
 }
 
@@ -30,161 +31,66 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
 /* ================= HEADER ================= */
 header {
+    height: var(--header_height);
     width: 100%;
-    height:var(--header_height);
-    background: var(--color-header-bg);
+
     display: flex;
-    padding: 0 1rem;
     align-items: center;
     justify-content: center;
-    border-bottom: solid 2px var(--color-border);
+    padding: 0 1rem;
+
+    background: var(--color-header-bg);
+    border-bottom: 2px solid var(--color-border);
 }
 
 header h1 {
-    font-family: "Cinzel", serif;
+    font-family: var(--font);
     color: var(--color-text);
     font-size: clamp(1.2rem, 4vw, 2rem);
 }
 
 header nav {
-    display: flex;
-    gap: 0.5rem;
     height: 100%;
+    display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
 }
 
-/* Boutons du nav header */
 header nav a button {
-    box-sizing: initial;
     padding: 5px;
-    border: solid 2px transparent;
-    background-color: transparent;
-    color: var(--color-text);
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-    font-weight: bolder;
+    background: transparent;
+    border: 2px solid transparent;
+
+    font-family: var(--font);
     font-size: large;
+    font-weight: bold;
+    color: var(--color-text);
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 header nav a button:hover {
-    border-bottom-color: var(--color-text);
     background-color: var(--color-dropdown-bg);
+    border-bottom-color: var(--color-text);
 }
-
-/* ================= MOBILE MENU ================= */
-.mobile-menu {
-    position: relative;
-    height: 100%;
-    width: auto;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.hamburger-btn {
-    visibility: visible;
-    opacity: 1;
-    position: relative;      
-    display: inline-block;
-    aspect-ratio: 1 / 1;     
-    width: 3rem;             
-    background: transparent;  
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: all 0.2s ease-in-out;
-}
-
-.hamburger-btn span {
-    position: absolute;
-    left: 50%;
-    width: 60%;
-    height: 0.2rem;
-    background: var(--color-text);
-    border-radius: 2px;
-    transform: translateX(-50%);
-    transition: all 0.3s ease;
-}
-
-.hamburger-btn span:nth-child(1) { top: 25%; }
-.hamburger-btn span:nth-child(2) { top: 50%; transform: translate(-50%, -50%); }
-.hamburger-btn span:nth-child(3) { bottom: 25%; }
-
-/* Transformation hamburger → croix */
-.hamburger-btn.open span:nth-child(1) { top: 50%; transform: translate(-50%, -50%) rotate(45deg); }
-.hamburger-btn.open span:nth-child(2) { opacity: 0; }
-.hamburger-btn.open span:nth-child(3) { bottom: auto; top: 50%; transform: translate(-50%, -50%) rotate(-45deg); }
-
-/* ================= DROPDOWN ================= */
-.dropdown {
-    position: absolute;
-    padding: 5px;
-    gap: 5px;
-    top: 110%;
-    right: 0;
-    width: 10rem;
-    background: var(--color-dropdown-bg);
-    border: 2px solid var(--color-border);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border-radius: 0.5rem;
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.2s ease;
-}
-
-.dropdown.open {
-    max-height: 300px;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.dropdown a button {
-    font-weight: bolder;
-    width: 100%;
-    height: 2rem;
-    background: transparent;
-    font-size: large;
-    border: solid 1px transparent;
-    color: var(--color-text);
-    transition: all 0.2s ease-in-out;
-    padding: 1px;
-    font-family: "Cinzel", serif;
-}
-
-.dropdown a button:hover {
-    background-color: var(--color-dropdown-hover);
-    border-top-color: var(--color-border);
-    border-bottom-color: var(--color-border);
-}   
-
-
 
 /* ================= CONTENT ================= */
-.content{
+.content {
     position: absolute;
-    display: flex;
     top: var(--header_height);
     bottom: 0;
     width: 100%;
+    display: flex;
 }
 
 /* ================= ASIDE ================= */
-.content aside{
-    overflow: hidden;
+.content aside {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0 auto 0 0;
 
     width: 4rem;
     padding: 0.5rem;
@@ -194,73 +100,66 @@ header nav a button:hover {
     flex-direction: column;
     align-items: flex-start;
 
-    box-sizing: initial;
     background: var(--color-header-bg);
-    border-right: solid 2px var(--color-border);
+    border-right: 2px solid var(--color-border);
+    overflow: auto;
+    overflow-x: hidden;
 
-    transition: all 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
 }
 
-.content aside:hover{
+.content aside:hover {
     width: 20rem;
 }
 
-/* ================= BUTTON ================= */
-.content aside button{
-    width: 20rem;
-    height: 4rem;
+/* ================= ASIDE BUTTON ================= */
+.content aside button {
+    width: 100%;
 
     display: flex;
     align-items: center;
     gap: 10px;
 
     background: none;
-    border: solid 2px transparent;
+    border: 2px solid transparent;
     cursor: pointer;
 
-    transition: all 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
-.content aside button:hover{
+.content aside button:hover {
     background-color: var(--color-dropdown-hover);
     border-top-color: var(--color-border);
     border-bottom-color: var(--color-border);
 }
 
 /* ================= ICON ================= */
-.content aside button #icon{
+.content aside button #icon {
     height: 100%;
-    aspect-ratio: 1/1;
-
+    aspect-ratio: 1 / 1;
     color: var(--color-border);
-    background-color: rgba(0, 0, 0, 0);
 }
 
 /* ================= TEXT ================= */
-.content aside button #text{
+.content aside button #text {
     display: flex;
     align-items: center;
 
-    height: 100%;
-    width: auto;
-
-    color: var(--color-text);
     font-family: var(--font);
-    text-align: left;
+    color: var(--color-text);
 
     visibility: hidden;
     opacity: 0;
 
-    transition: all 0.2s ease-in-out;
-    background-color: rgba(0, 255, 255, 0);
+    transition: opacity 0.2s ease-in-out;
 }
 
 /* ================= ARROW ================= */
-.content aside button #arrow{
+.content aside button #arrow {
     margin-left: auto;
 
     height: 50%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     color: var(--color-text);
 
     visibility: hidden;
@@ -270,41 +169,39 @@ header nav a button:hover {
     transition:
         opacity 0.2s linear,
         transform 0.2s ease-in-out;
-
-    transition-delay: 0s;
 }
 
 /* ================= SVG ================= */
-.content aside button span svg{
+.content aside button span svg {
     height: 100%;
-    background: transparent;
 }
 
 /* ================= ASIDE OPEN STATE ================= */
-.content aside:hover button #text{
+.content aside:hover button #text {
     visibility: visible;
     opacity: 1;
 }
 
-.content aside:hover button #arrow{
+.content aside:hover button #arrow {
     visibility: visible;
     opacity: 1;
-
     transform: translateX(0);
     transition-delay: 0.3s;
 }
 
 /* ================= LAST BUTTON ================= */
-.content aside button:last-child{
+.content aside button:last-child {
     margin-top: auto;
 }
 
-/* ================= main ================= */
-main{
-    background: var(--radial-grad-bg);
+/* ================= MAIN ================= */
+main {
     width: 100%;
     height: 100%;
-    padding: 0.5rem 6rem ;
+
+    padding: 0.5rem 6rem;
+    background: var(--radial-grad-bg);
+
     display: flex;
     flex-direction: column;
     align-items: center;
