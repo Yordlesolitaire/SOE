@@ -3,6 +3,7 @@ import { useMediaQuery } from "./useMediaQuery"
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
+//{isMobile ? (<MobileLayout />) : (<DesktopLayout />)}
 
 
 const LINKS = [
@@ -20,14 +21,7 @@ export function Header() {
     const isMobile = useMediaQuery("(max-width: 768px)");
     return (
         <header className="header">
-            
             <h1>Shadows of Erdalorn</h1>
-
-            {isMobile ? (
-                <MobileLayout />
-            ) : (
-                <DesktopLayout />
-            )}
         </header>
     );
 }
