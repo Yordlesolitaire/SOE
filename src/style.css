@@ -8,6 +8,7 @@
     --color-dropdown-hover: #1a0e0580;    /* Hover du menu dropdown */
     --font:"Cinzel", serif;
     --radial-grad-bg: radial-gradient(circle,#502d14 0%, #29170a 100%);
+    --header_height:3.5rem;
 }
 
 /* ================= RESET ================= */
@@ -21,7 +22,7 @@ html, body {
     height: 100%;
     width: 100%;
     background-color: black; /* Fond général */
-    overflow: hidden;
+    overflow: auto;
 }
 
 /* ================= ROOT ================= */
@@ -32,7 +33,7 @@ html, body {
 /* ================= HEADER ================= */
 header {
     width: 100%;
-    height: 3.5rem;
+    height:var(--header_height);
     background: var(--color-header-bg);
     display: flex;
     padding: 0 1rem;
@@ -172,7 +173,7 @@ header nav a button:hover {
 .content{
     position: absolute;
     display: flex;
-    top: 3.5rem;
+    top: var(--header_height);
     bottom: 0;
     width: 100%;
 }
