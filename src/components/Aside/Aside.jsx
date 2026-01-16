@@ -165,51 +165,40 @@ function DesktopNav() {
 
 
 
-function MenuItem() {
-  const navigate = useNavigate();
-  
-  return(
-    <>
-      {MENU.map((item, index) => {
-          const hasChildren = item.children && item.children.length > 0;
 
-          return (
-            <button key={index} onClick={() => navigate(item.path)}>
-              <span id={styles.icon}>{item.icon}</span>
-              <span id={styles.text}><h2>{item.name}</h2></span>
-              <span id={styles.arrow}>{hasChildren && <Arrow/>}</span>
-              {hasChildren &&<div className={styles.submenu}>{<SubMenuItem menus={item.children} />}</div>}
-            </button>
-          );
-        })}
+function MenuItem({ MENU }) {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      {MENU.map((item, index) => (
+        <MenuNode key={index} item={item} navigate={navigate} />
+      ))}
     </>
-  )
-} 
-
-
-
-function SubMenuItem({menus}){
-  const navigate = useNavigate();
-  return(
-    
-    <>
-    
-      {menus.map((item,index) => {
-        const hasChildren = item.children && item.children.length > 0;
-        return(
-        <button key={index} onClick={() => navigate(item.path)}>
-          <span><h4>{item.name}</h4></span>
-          <span><Arrow/></span>
-        </button>
-      )
-      })}
-    </> 
-  )
+  );
 }
 
+function MenuNode({ item, navigate }) {
+  const hasChildren = item.children && item.children.length > 0;
 
+  return (
+    <div className={styles.menuItem}>
+      <button className={styles.Menu} onClick={() => navigate(item.path)}>
+        <span className={styles.icon}>{item.icon}</span>
+        <span className={styles.text}>{item.name}</span>
+        {hasChildren && <span className={styles.arrow}><Arrow /></span>}
+      </button>
 
-
+      {hasChildren && (
+        <div className={styles.submenu}>
+          {item.children.map((child, idx) => (
+            <MenuNode key={idx} item={child} navigate={navigate} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 
 
