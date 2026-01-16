@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SOE/static/css/main.dc6c13d0.css",
+    "main.js": "/SOE/static/js/main.2a3f8049.js",
+    "index.html": "/SOE/index.html",
+    "main.dc6c13d0.css.map": "/SOE/static/css/main.dc6c13d0.css.map",
+    "main.2a3f8049.js.map": "/SOE/static/js/main.2a3f8049.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc6c13d0.css",
+    "static/js/main.2a3f8049.js"
+  ]
+}
