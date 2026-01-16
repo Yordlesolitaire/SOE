@@ -1,20 +1,170 @@
-.aside{
+/* =========================
+   ASIDE
+   ========================= */
+
+.aside {
     box-sizing: inherit;
     position: absolute;
-    width: var(--nav_width);
-    background: var(--color-header-bg);
-    border-right: solid 2px var(--color-border);
-    z-index: 15;
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
     top: 0;
     bottom: 0;
-    overflow: hidden;
+    width: var(--nav_width);
+    background: var(--color-header-bg) fixed;
+    border-right: solid 2px var(--color-border);
+    z-index: 15;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.3s ease-in-out;
 }
 
-.aside:hover{
-    overflow: visible;
+.aside:hover {
     width: 16rem;
 }
 
+.aside .Menu:last-child {
+    margin-top: auto;
+}
+
+/* =========================
+   MENU
+   ========================= */
+
+.Menu {
+    position: relative;
+    width: 100%;
+    height: var(--nav_width);
+}
+
+/* --- Button --- */
+
+.Menu button {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    cursor: pointer;
+
+    background: none;
+    color: var(--color-text);
+    border: solid 2px transparent;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.Menu button:hover {
+    background-color: var(--color-dropdown-hover);
+    border-top-color: var(--color-border);
+    border-bottom-color: var(--color-border);
+}
+
+.Menu button span {
+    transition: all 0.2s ease-in-out;
+}
+
+/* --- Icon --- */
+
+.Menu button #icon {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.Menu button #icon svg{
+    height: 90%;
+}
+
+/* --- Text --- */
+
+.Menu button #text {
+    height: 100%;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+
+    font-family: var(--font);
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* --- Arrow --- */
+
+.Menu button #arrow {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    aspect-ratio: 1 / 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+}
+
+.Menu button #arrow svg {
+    height: 50%;
+}
+
+/* --- Aside hover effects --- */
+
+.aside:hover .Menu button #text,
+.aside:hover .Menu button #arrow {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================
+   SUBMENU
+   ========================= */
+
+.submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+
+    width: 0rem;
+    height: fit-content;
+
+    background: var(--color-header-bg);
+    border: solid 2px var(--color-border);
+
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Submenu button --- */
+
+.submenu button {
+    width: 100%;
+    height: var(--nav_width);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.submenu button h2 {
+    opacity: 0;
+    font-family: var(--font);
+    transition: all 0.2s ease-in-out 0.3s;
+}
+
+/* --- Submenu hover --- */
+
+.aside .Menu:hover .submenu {
+    width: 15rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.aside .Menu:hover .submenu h2 {
+    opacity: 1;
+}
