@@ -158,6 +158,7 @@ export default function Aside() {
 function DesktopNav() {
   return (
     <aside className={styles.aside} id={styles.aside_DESKTOP}>
+      <div></div>
     </aside>
   );
 }
