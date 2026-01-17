@@ -1,0 +1,47 @@
+.aside {
+    position: absolute;
+    width: 0rem;
+    background: var(--color-header-bg);
+    height: 100%;
+    z-index: 15;
+    border-right:solid 2px var(--color-border);
+    transition: all 0.3s ease-in-out;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.Opener {
+    top: var(--header_height);
+    left: 100%;
+    position: absolute;
+    height: var(--header_height);
+    aspect-ratio: 1/1;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    background: var(--color-dropdown-bg);
+    border: solid 2px var(--color-border);
+    color: var(--color-text);
+}
+
+.Opener svg{
+    transition: all 0.3s ease-in-out;
+}
+
+.aside.open{
+    width: 50%;
+}
+
+.Opener.open svg{
+    transform: rotate(180deg);
+}
+
+
+
+
+.aside div{
+    height: calc(var(--header_height) * 1.5);
+    width: 100%;
+    background-color: aqua;
+}

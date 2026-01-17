@@ -1,72 +1,70 @@
 // Aside.jsx
-import styles from "./Aside.module.css";
+import Desktop from "./Desktop.module.css";
+import Mobile from "./Mobile.module.css"
 import { useMediaQuery } from "../../functions/useMediaQuery";
 import { useNavigate } from "react-router-dom";
+import {HomeIcon,Arrow,Classes,Races,Quest,Codex,Tools,History,Settings,Univers} from "../Icons"
+import { use, useState } from "react";
 //import { useState, useEffect } from "react";
 //import { useNavigate } from "react-router-dom";
 
-function HomeIcon(){
-  return(<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentcolor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="currentcolor" d="M256 19.27L25.637 249.638 19.27 256 32 268.73l6.363-6.367L256 44.727l217.637 217.636L480 268.73 492.73 256l-6.367-6.363zM96 48v107.273l64-64.002V48zm160 20.727l-192 192V486h64V320h96v166h224V260.727zM288 320h96v80h-96z"></path></g></svg>)
-}
 
-function Arrow(){
-  return <svg height="100%" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" fill="currentcolor"></path> </g></svg>
-}
-
-function Quest(){
-  return <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentcolor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="currentcolor" d="M66.26 62.5c-4.533 0-9.11.862-11.564 1.906-.914.39-1.142.617-1.377.797v32.26l26.488.287-.47-32.488c-.237-.183-.513-.445-1.47-.85C75.382 63.36 70.795 62.5 66.26 62.5zM365.22 78.293c-.528.005-1.08.022-1.65.05-2.287.117-4.886.428-7.47.968-5.167 1.08-10.42 3.023-13.677 4.973-2.754 1.65-3.064 2.87-3.095 2.225l.143 20.05 29.85.323V78.585c-.124-.03-.017-.013-.16-.04-.998-.18-2.358-.267-3.94-.25zM19.413 115.1l.56 54.732 11.036 8.027-4.257 66.695 132.46 8.416-133.66 6.99-3.5 44.987 361.22-1.93 48.19-36.52.257-12.01 60.867-41.66-39.547-40.106-56.44-6.484 39.544-5.52-58.74-35.747zM369.32 321.092l-27.723.148 1.63 167.76h26.092V370.074l-9.272-4.303 9.27-5.23zm-286.428 1.53l-29.573.16V489h31.867z"></path></g></svg>
-}
-
-function Classes(){
-  return <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentcolor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="currentcolor" d="M162 35.75l-94.49 27.1c-12.05 6.3-23.47 23.9-31.01 46.35-6.07 18.2-9.62 38.9-10.93 58.3L136.7 112zm188 .1L375.4 112l111 55.6c-1.3-19.3-4.9-40.2-10.9-58.3-5.7-17.05-13.6-31.35-22.5-40.05-2.7-2.8-5.5-4.9-8.4-6.4zm-172.9 11.5l-25.7 77.45-92.9 46.4 14.08 53.5 88.82 44.4 94.6-15.9 94.6 15.9 88.8-44.4 14.1-53.5-92.8-46.4-25.8-77.35h-10.5l-59.3 73.95-.1 61.1h-18.1l.1-61-59.3-74.15zM78.65 247.7l22.05 83.9 146.2-43.8v-14.7l-88.4 14.7zm354.75 0l-80 40.1-88.4-14.7v14.7l146.3 43.8zm-186.5 58.7l-31.6 9.6-35.1 70.2 66.7-33.3zm18.1 0v46.5l66.9 33.4-35.2-70.3zM191.7 323l-86.4 26 25.3 96.3zm128.6.1l61.1 122.1 25.3-96.2zm-55.3 50l.1 43.2 100.7 37.8-20.4-40.8zm-18.1 0l-80.2 40.1-20.5 40.9L247 416.3zm.1 62.4l-81.6 30.6 81.6 10.2zm18.1 0v40.7l81.7-10.2z"></path></g></svg>
-}
-
-function History(){
-  return <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentcolor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="currentcolor" d="M277.822 18l-33.46 5.637 20.41 20.41 42.12-5.5L457.26 171.332l8.892 52.78-188.006-57.487-8.16 12.145L494 247.27v-65.372L321.695 18h-43.873zm-55.242 9.307L42.775 57.597l-14.457 47.276 195.346 59.732c3.162-2.613 6.453-5.325 12.973-10.673L71.084 103.31l34.695-36.474 2.195-2.31L242.262 46.99l-19.682-19.68zm78.53 30.146l-20.282 2.65 23.832 23.83-32.492 10.833 46.45 11.61-29.983 44.634 154.928 47.373-2.995-17.778-139.46-123.152zm-42.794 5.59L116.626 81.55l-12.427 13.063 149.204 45.625c10.38-8.434 21.128-17.107 30.07-24.093l-75.64-18.91 63.506-21.17-13.024-13.022zM148.13 164.598l-26.595 26.595-11.867-23.734-14.95 44.843-27.23-40.846L53.434 424.46c34.415 5.734 70.622 6.06 109.13-.075L148.13 164.598zm-5.134 43.134l6 202-17.992.536-6-202 17.992-.536zm-69.992.004l17.992.528-6 204-17.992-.528 6-204zM99 208h18v208H99V208zm310 57v42.73c15.296 4.103 50.7 4.374 85 3.99V265h-85zm-21.236 64c-3.1 2.538-6.47 4.89-10.202 6.822-6.376 3.302-14.134 5.18-22.37 3.875-4.783-.758-9.604-2.636-14.467-5.408L327.155 375H439v-46h-51.236zM457 329v46h37v-46h-37zm-185.658 17.377c-8.592 4.21-16.74 8.066-23.008 13.033-5.09 4.035-9.18 8.75-12.11 15.59h78.05l-42.932-28.623zM237.104 393c6.465 18.295 8.62 33.21 8.447 46H247v-46h-9.896zM265 393v46h110v-46H265zm186.73 0l-46.003 46H494v-46h-42.27zM195 442.203c-36.733 4.718-73.905 6.542-111.535 5.186l-3.414 4.45 35.934 6.764-34.38 29.76c38.292 1.366 76.09-.08 113.396-4.42v-41.74zm-174 .014v41.69c11.597 1.292 23.148 2.323 34.656 3.113l20.36-17.624-28.067-5.283 13.704-17.867c-13.492-.93-27.042-2.254-40.654-4.03zM243.748 457c-2.055 11.088-5.47 20.656-8.2 30H311v-30h-67.252zM329 457v30h110v-30H329zm128 0v30h37v-30h-37z"></path></g></svg>
-}
-
-function Codex(){
-  return <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentcolor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="currentcolor" d="M104 37.25V215.1c3.6 9.9 10 14.1 20.9 17 11.4 2.9 27.1 3.1 43.9 3.1 16.8 0 34.6-.1 51.4 3.6 9.5 2.1 18.7 5.7 26.8 11.2V55.43c-7.2-9.9-15.9-13.69-27.3-15.09-12.2-1.49-27.3.55-42.9 2.83-15.7 2.28-31.9 4.81-47.7 2.88-8.7-1.07-17.3-3.87-25.1-8.8zm304 0c-7.8 4.93-16.4 7.73-25.1 8.8-15.8 1.93-32-.6-47.7-2.88-15.6-2.28-30.7-4.32-42.9-2.83-11.4 1.4-20.1 5.19-27.3 15.09V250c8.1-5.5 17.3-9.1 26.8-11.2 16.8-3.7 34.6-3.6 51.4-3.6 16.8 0 32.5-.2 43.9-3.1 10.9-2.9 17.3-7.1 20.9-17V37.25zM130.8 80.03h89.4v18h-89.4v-18zm161 0h89.4v18h-89.4v-18zm-161 44.47h89.4v18h-89.4v-18zm161 0h89.4v18h-89.4v-18zm-161 46.8h89.4v18h-89.4v-18zm161 0h89.4v18h-89.4v-18zM96 249c-17.3 0-29.19 7.3-37.77 18.9C49.66 279.4 45 295.7 45 312s4.66 32.6 13.23 44.1C66.81 367.7 78.7 375 96 375c22 0 35.7-7.1 44.4-14 8.6-6.9 11.5-13 11.5-13l2.5-5h203.2l2.5 5s2.9 6.1 11.5 13c8.7 6.9 22.4 14 44.4 14 17.3 0 29.2-7.3 37.8-18.9 8.5-11.5 13.2-27.8 13.2-44.1s-4.7-32.6-13.2-44.1c-8.6-11.6-20.5-18.9-37.8-18.9-22 0-35.7 7.1-44.4 14-8.6 6.9-11.5 13-11.5 13l-2.5 5H154.4l-2.5-5s-2.9-6.1-11.5-13c-8.7-6.9-22.4-14-44.4-14zm4.6 21.9c.9 0 1.9 0 2.9.1 13.5 1.2 28.2 8.9 44.1 24h216.8c15.9-15.1 30.6-22.8 44.1-24 14.2-1.2 26.6 5.8 33.1 16.2 13.1 20.9 7 53.9-20.6 72.3l-10-15c20.4-13.6 22.3-36.6 15.4-47.7-3.5-5.6-8.1-8.6-16.4-7.8-8.2.7-20.6 6.3-35.6 21.4l-2.7 2.6H140.3l-2.7-2.6c-15-15.1-27.4-20.7-35.6-21.4-8.26-.8-12.9 2.2-16.37 7.8-6.92 11.1-4.99 34.1 15.37 47.7l-9.99 15c-27.65-18.4-33.72-51.4-20.64-72.3 5.72-9.1 15.9-15.6 27.92-16.3h2.31zM169 361v126h30V361h-30zm48 0v126h30V361h-30zm48 0v126h30V361h-30zm48 0v126h30V361h-30z"></path></g></svg>
-}
-
-function Tools(){
-  return <svg fill="currentcolor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M3.135 6.89c.933-.725 1.707-.225 2.74.971.116.135.272-.023.361-.1.088-.078 1.451-1.305 1.518-1.361.066-.059.146-.169.041-.292a36.238 36.238 0 0 1-.743-.951c-1.808-2.365 4.946-3.969 3.909-3.994-.528-.014-2.646-.039-2.963-.004-1.283.135-2.894 1.334-3.705 1.893-1.061.726-1.457 1.152-1.522 1.211-.3.262-.048.867-.592 1.344-.575.503-.934.122-1.267.414-.165.146-.627.492-.759.607-.133.117-.157.314-.021.471 0 0 1.264 1.396 1.37 1.52.105.122.391.228.567.071.177-.156.632-.553.708-.623.078-.066-.05-.861.358-1.177zm5.708.517c-.12-.139-.269-.143-.397-.029L7.012 8.63a.289.289 0 0 0-.027.4l8.294 9.439c.194.223.53.246.751.053l.97-.813a.54.54 0 0 0 .052-.758L8.843 7.407zM19.902 3.39c-.074-.494-.33-.391-.463-.182-.133.211-.721 1.102-.963 1.506-.24.4-.832 1.191-1.934.41-1.148-.811-.749-1.377-.549-1.758.201-.383.818-1.457.907-1.59.089-.135-.015-.527-.371-.363-.357.164-2.523 1.025-2.823 2.26-.307 1.256.257 2.379-.85 3.494l-1.343 1.4 1.349 1.566 1.654-1.57c.394-.396 1.236-.781 1.998-.607 1.633.369 2.524-.244 3.061-1.258.482-.906.402-2.814.327-3.308zM2.739 17.053a.538.538 0 0 0 0 .758l.951.93c.208.209.538.121.746-.088l4.907-4.824-1.503-1.714-5.101 4.938z"></path></g></svg>
-}
-
-function Races(){
-  return <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentcolor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="currentcolor" d="M72.81 429.82c-22.296-2.195-27.265-19.923-25.57-43.598 9.177 9.99 18.39 19.894 32.228 22.2-.75-7.84.293-15.77 4-23.815 5.323 7.987 14.75 16.796 29.034 26.567l10.557-28.337c9.917 15.174 21.736 29.49 48.303 41.756l11.9-35.993c7.796 8.075 15.115 16.283 33.035 21.326l24.54-36.55c22.244 9.91 42.094 7.707 58.597-11.042 13.845-17.986 27.5-36.654 38.51-64.19l-8.08-30.04c-.552-12.898 15.98-20.13 26.698-7.09l25.833 49.492c3.972 11.24 4.647 23.27-2.554 37.263l-45.075 68.697c-7.32 5.586-16.634 10.108-35.875 9.198-33.167-3.663-65.717-6.63-91.228-1.006-29.393 3.428-58.757 7.524-88.056 13.206-16.216 4.97-32.058 5.285-46.8-8.046zm49.984-77.64c-7.862 13.362-11.848 26.56-14.065 39.672-19.74-10.725-23.808-22.162-25.76-33.68-7.4 10.894-10.6 21.59-12.304 32.22-16.063-7.584-21.34-18.375-25.577-29.468l-6.842 11.908-13.075-46.97c-4.258-10.16-4.962-20.487 5.36-31.3l33.614-33.91 29.724.024c22.626-17.655 48.995-33.63 78.902-48.084l59.06-68.815c12.993-11.43 26.398-13.64 39.898-13.933l66.047-2.944c5.954 1.975 11.9 4.133 18.015 10 37.572 33.9 59.94 68.483 54.618 104.286l-29.262 40.47-10.446-25.98c-12.92-18.94-28.54-20.093-42.872-14.982-10.078 3.594-11.672 13.897-11.694 21.634l7.862 34.466c-15.49 31.28-31.434 52.496-47.797 64.39-12.758 5.65-25.994.814-39.384-7.746-8.802 15.468-17.78 27.228-26.824 37.08-13.772-6.65-23.61-17.656-31.963-30.238-5.823 18.5-9.486 34.657-12.555 50.154-23.036-15.152-38.753-33.872-42.68-58.25zm-54.668-42.93l26.39-23.344-10.042-12.215-16.517 8.127-13.58 26.978zm146.55-37.028l38.892-4.14 23.205-14.102c7.48-6.71 10.755-13.412 12.553-20.1l-17.082-42.072c-3.296-4.632-7.716-5.748-13.728-2.055l-35.95 35.325-32.36 8.266c-3.713 2.525-5.07 5.6-3.104 9.514l9.595 21.018c3.986 6.115 9.925 8.244 17.978 8.346zm198.178-11.01l11.768-16.41c1.622-16.905-.42-30.83-5.337-43.993 21.267-5.852 48.473 4.256 68.698 25.97 3.597 5.257 1.703 12.092-5.455 14.096-28.087 6.32-45.94 21.194-69.674 20.335zM372.677 131.01c23.153-7.708 46.557-9.977 70.033-10.373 4.09-.053 10.16.33 8.942 7.363-9.41 27.2-25.444 38.73-42.226 51.175-8.48-17.487-21.597-33.22-36.75-48.165zm-27.735-58.017c12.282-3.26 27.412-3.39 25.65 5.873l-26.626 34.195-65.292 2.908c21.253-20.915 38.87-35.64 66.268-42.975z"></path></g></svg>
-}
-
-function Settings(){
-  return <svg fill="currentcolor" viewBox="0 0 32 32" enable-background="new 0 0 32 32" id="Glyph" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M27.526,18.036L27,17.732c-0.626-0.361-1-1.009-1-1.732s0.374-1.371,1-1.732l0.526-0.304 c1.436-0.83,1.927-2.662,1.098-4.098l-1-1.732c-0.827-1.433-2.666-1.925-4.098-1.098L23,7.339c-0.626,0.362-1.375,0.362-2,0 c-0.626-0.362-1-1.009-1-1.732V5c0-1.654-1.346-3-3-3h-2c-1.654,0-3,1.346-3,3v0.608c0,0.723-0.374,1.37-1,1.732 c-0.626,0.361-1.374,0.362-2,0L8.474,7.036C7.042,6.209,5.203,6.701,4.375,8.134l-1,1.732c-0.829,1.436-0.338,3.269,1.098,4.098 L5,14.268C5.626,14.629,6,15.277,6,16s-0.374,1.371-1,1.732l-0.526,0.304c-1.436,0.829-1.927,2.662-1.098,4.098l1,1.732 c0.828,1.433,2.667,1.925,4.098,1.098L9,24.661c0.626-0.363,1.374-0.361,2,0c0.626,0.362,1,1.009,1,1.732V27c0,1.654,1.346,3,3,3h2 c1.654,0,3-1.346,3-3v-0.608c0-0.723,0.374-1.37,1-1.732c0.625-0.361,1.374-0.362,2,0l0.526,0.304 c1.432,0.826,3.271,0.334,4.098-1.098l1-1.732C29.453,20.698,28.962,18.865,27.526,18.036z M16,21c-2.757,0-5-2.243-5-5s2.243-5,5-5 s5,2.243,5,5S18.757,21,16,21z" id="XMLID_273_"></path></g></svg>
-}
 
 const MENU = [
-  {
-    name: "Accueil",
+  {name: "Accueil",
     path: "/",
     icon: <HomeIcon />,
     children: [],
   },
 
-  {
-    name: "Classes",
-    path: "/classes",
-    icon: <Classes />,
-    children: [
-      {
-        name: "Guerrier",
-        path: "/classes/guerrier",
-      },
-      {
-        name: "Mage",
-        path: "/classes/mage",
-      },
-    ],
-  },
+  {name: "Classes",
+  path: "/classes",
+  icon: <Classes />,
+  children: [
+    {
+      name: "Guerrier",
+      path: "/classes/guerrier",
+    },
+    {
+      name: "Chasseur",
+      path: "/classes/chasseur",
+    },
+    {
+      name: "Incarné",
+      path: "/classes/incarne",
+    },
+    {
+      name: "Lamesombre",
+      path: "/classes/lamesombre",
+    },
+    {
+      name: "Profanateur",
+      path: "/classes/profanateur",
+    },
+    {
+      name: "Artiste Martial",
+      path: "/classes/artiste-martial",
+    },
+    {
+      name: "Artificier",
+      path: "/classes/artificier",
+    },
+    {
+      name: "Mage",
+      path: "/classes/mage",
+    },
+    {
+      name: "Clerc",
+      path: "/classes/clerc",
+    },
+    {
+      name: "Barde",
+      path: "/classes/barde",
+    },
+  ],
+},
 
-  {
-    name: "Races",
+  {name: "Races",
     path: "/races",
     icon: <Races/>,
     children: [
@@ -76,18 +74,16 @@ const MENU = [
     ],
   },
 
-  {
-    name: "Quêtes",
+  {name: "Quêtes",
     path: "/quetes",
     icon: <Quest />,
     children: [
-      { name: "Principales", path: "/quetes/principales" },
-      { name: "Secondaires", path: "/quetes/secondaires" },
+      { name: "Tableau de quêtes", path: "/quetes/table" },
+      { name: "Quete séléctionné", path: "/quetes/selectione" },
     ],
   },
 
-  {
-    name: "Codex",
+  {name: "Codex",
     path: "/codex",
     icon: <Codex/>,
     children: [
@@ -97,8 +93,7 @@ const MENU = [
     ],
   },
 
-  {
-    name: "Outils",
+  {name: "Outils",
     path: "/outils",
     icon: <Tools/>,
     children: [
@@ -108,8 +103,7 @@ const MENU = [
     ],
   },
 
-  {
-    name: "Historique",
+  {name: "Historique",
     path: "/historique",
     icon: <History/>,
     children: [
@@ -119,9 +113,12 @@ const MENU = [
       { name: "Personnages historiques", path: "/historique/personnages" },
     ],
   },
-
-  {
-    name: "Paramètres",
+  {name: "Univers",
+    path: "/univers",
+    icon: <Univers/>,
+    children: [],
+  },
+  {name: "Paramètres",
     path: "/parametre",
     icon: <Settings/>,
     children: [],
@@ -148,18 +145,18 @@ export default function Aside() {
 function DesktopNav() {
   const navigate = useNavigate()
   return (
-    <aside className={styles.aside} id={styles.aside_DESKTOP}>
+    <aside className={Desktop.aside} id={Desktop.aside_DESKTOP}>
       {MENU.map((item, index) => {
         const hasChildren = item.children && item.children.length > 0;
         return (
-          <div key={index} className={styles.Menu}>
+          <div key={index} className={Desktop.Menu}>
             <button onClick={() => navigate(item.path)}>
-              <span id={styles.icon}>{item.icon}</span>
-              <span id={styles.text}><h1>{item.name}</h1></span>
-              <span id={styles.arrow}>{hasChildren && <Arrow/>  }</span>
+              <span id={Desktop.icon}>{item.icon}</span>
+              <span id={Desktop.text}><h1>{item.name}</h1></span>
+              <span id={Desktop.arrow}>{hasChildren && <Arrow/>  }</span>
             </button>
             {hasChildren && (
-              <Submenu items={item.children} />
+              <SubmenuDESKTOP items={item.children} />
             )}
           </div>
         );
@@ -168,16 +165,16 @@ function DesktopNav() {
   );
 }
 
-function Submenu({ items }) {
+function SubmenuDESKTOP({ items }) {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.submenu}>
+    <div className={Desktop.submenu}>
       {items.map((item, index) => {
         const hasChildren = item.children?.length > 0;
 
         return (
-          <div key={index} className={styles.submenuItem}>
+          <div key={index} className={Desktop.submenuItem}>
             <button onClick={() => navigate(item.path)}>
               <h2>{item.name}</h2>
             </button>
