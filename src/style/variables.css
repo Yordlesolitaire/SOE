@@ -9,6 +9,7 @@
     --font: "Cinzel", serif;
     --radial-grad-bg: radial-gradient(circle,#502d14 0%, #29170a 100%);
     --header_height: 4rem;
+    --header_height_portr:2rem;
     --nav_width:4rem;
 }
 
