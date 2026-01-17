@@ -1,13 +1,13 @@
 :root {
-    --color-bg: #372516;
-    --color-header-bg: linear-gradient(45deg,#252d22,#54511f,#252d22);
-    --color-border: #8d844d;
-    --color-text: #8d844d;
-    --color-dropdown-bg: #3A261C;
-    --color-dropdown-hover: #1a0e0580;
+    --color_bg: #372516;
+    --color_header_bg: linear-gradient(45deg,#252d22,#54511f,#252d22);
+    --color_border: #8d844d;
+    --color_text: #8d844d;
+    --color_dropdown_bg: #3A261C;
+    --color_dropdown-hover: #1a0e0580;
 
     --font: "Cinzel", serif;
-    --radial-grad-bg: radial-gradient(circle,#502d14 0%, #29170a 100%);
+    --radial_grad_bg: radial-gradient(circle,#502d14 0%, #29170a 100%);
     --header_height: 4rem;
     --header_height_portr:2rem;
     --nav_width:4rem;
