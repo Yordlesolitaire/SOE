@@ -1,0 +1,83 @@
+.aside {
+  position: absolute;
+  width: var(--header_height);
+  top: 0;
+  bottom: 0;
+  background: var(--color_header_bg);
+  left: 0;
+  border-right: solid 2px var(--color_border);
+  transition: all 0.3s ease-in-out;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.aside:hover{
+    width: calc(var(--header_height) * 4);
+}
+
+.aside:hover span{
+    opacity: 1;
+}
+
+.aside div{
+    height: var(--header_height);
+    width: 100%;
+}
+
+.aside div:last-child{
+    margin-top: auto;
+}
+
+.aside div button{
+    color: var(--color_text);
+    cursor: pointer;
+    height: 100%;
+    width: calc(var(--header_height) * 4);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+
+    border: solid 2px transparent;
+}
+
+.aside div:first-child button:hover{
+    border-top-color:transparent;
+}
+
+.aside div:last-child button:hover{
+    border-bottom-color:transparent;
+}
+
+.aside div button:hover{
+    border-top-color: var(--color_border);
+    border-bottom-color: var(--color_border);
+    background-color: var(--color_dropdown_hover);
+}
+
+.aside div button #icon{
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.aside div button #text{
+    font-family: var(--font);
+}
+
+.aside div button #arrow{
+    height: 100%;
+    aspect-ratio: 1/2;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+
+}

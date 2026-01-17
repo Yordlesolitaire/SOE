@@ -1,0 +1,8 @@
+.content{
+    width: 100%;
+    height: calc(100% - var(--header_height_portr));
+    background-color: var(--color_bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
