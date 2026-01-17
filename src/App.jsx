@@ -1,8 +1,7 @@
 import "./style/variables.css";
 import "./style/reset.css";
 import "./Style.css";
-import Header from "./Components/Header/Header";
-
+import Header from "./components/header/Header";
 import useDevice from "./functions/device";
 
 function App() {

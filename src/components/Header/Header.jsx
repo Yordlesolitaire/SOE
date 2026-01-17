@@ -1,10 +1,3 @@
-
-
-
-
-
-export default function Header({ device }) {
-  const { isMobile, isPortrait } = device;
-
-  return isMobile ? <h1>Mobile</h1> : <h1>Desktop</h1>;
+export default function Header({device}){
+    return <h1>ok</h1>
 }
