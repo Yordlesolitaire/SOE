@@ -3,7 +3,7 @@
   width: var(--header_height);
   top: 0;
   bottom: 0;
-  background: var(--color_header_bg);
+  background: var(--color_aside_bg) fixed;
   left: 0;
   border-right: solid 2px var(--color_border);
   transition: all 0.3s ease-in-out;
@@ -13,33 +13,39 @@
 }
 
 .aside:hover{
+    overflow-x: visible;
     width: calc(var(--header_height) * 4);
 }
 
-.aside:hover span{
-    opacity: 1;
-}
 
 .aside div{
+    user-select: none;
     height: var(--header_height);
     width: 100%;
 }
+
+.aside .menu{
+    position: relative; 
+    background-color: rgba(255, 0, 255, 0);
+}
+
 
 .aside div:last-child{
     margin-top: auto;
 }
 
 .aside div button{
+    user-select: none;
     color: var(--color_text);
     cursor: pointer;
     height: 100%;
-    width: calc(var(--header_height) * 4);
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
     background: transparent;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
 
     border: solid 2px transparent;
 }
@@ -58,6 +64,10 @@
     background-color: var(--color_dropdown_hover);
 }
 
+.aside div button span{
+    transition: all 0.2s ease-in-out 0.3s;
+}
+
 .aside div button #icon{
     height: 100%;
     aspect-ratio: 1/1;
@@ -69,7 +79,9 @@
 }
 
 .aside div button #text{
+    opacity: 0;
     font-family: var(--font);
+    transition-delay:0s;
 }
 
 .aside div button #arrow{
@@ -78,6 +90,74 @@
     margin-left: auto;
     display: flex;
     align-items: center;
-    justify-content: center ;
+    justify-content: center;
+    opacity: 0;
+    transition-delay:0s;
 
+}
+
+
+
+.aside:hover #arrow,.aside:hover #text{
+    opacity: 1;
+    display: flex;
+    transition-delay:0.3s;
+}
+
+
+.aside .menu .submenu {
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  width: 0rem;
+  left: calc(100% + 2px);
+  height: fit-content;
+  border: solid 2px transparent;
+  overflow: hidden;
+
+  background: var(--color_aside_bg);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.aside .menu:hover .submenu{
+    width: 15rem;
+    border: solid 2px var(--color_border);
+    border-left:none ;
+}
+
+.aside .menu .submenu button{
+    width: 100%;
+    opacity: 0;
+    transition-delay: 0s;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.aside .menu:hover .submenu button{
+    width: 100%;
+    opacity: 1;
+    transition-delay: 0.3s;
+    
+    
+}
+.aside .menu:hover .submenu button:hover{
+    border-bottom:solid 2px var(--color_border) ;
+}
+
+.aside .menu:hover .submenu button:first-child{
+    border-top-color:transparent ;
+}
+
+.aside .menu:hover .submenu button:last-child{
+    border-bottom-color:transparent ;
+}
+
+
+.aside .menu .submenu button h1{
+    font-family: var(--font);
+    background-color: rgba(0, 255, 255, 0);
+    width: 100%;
+     white-space: nowrap;   /* 🔥 CRUCIAL */
+     transition-delay: 0s ;
+     opacity: 1;
 }

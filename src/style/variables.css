@@ -1,6 +1,7 @@
 :root {
     --color_bg: #372516;
     --color_header_bg: linear-gradient(45deg,#252d22,#54511f,#252d22);
+    --color_aside_bg: linear-gradient(-45deg,#252d22,#54511f,#252d22);
     --color_border: #8d844d;
     --color_text: #8d844d;
     --color_dropdown_bg: #3A261C;
