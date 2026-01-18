@@ -2,6 +2,7 @@ import Desk from "./Desktop.module.css"
 import Phone from "./Mobile.module.css"
 import { Arrow,Accueil,Classes,Settings,Races,Rules,Codex,Objets,Quest,Tools,History,Univers } from "../../data/Svgs"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 const MENU = [
   {
     name: "Accueil",
@@ -165,46 +166,68 @@ const MENU = [
 
 
 
-export default function Aside({ device, children }) {
+export default function Aside({ device }) {
   const { isMobile } = device;
 
   return (
     <>
-      {isMobile ? (<Mobile device={device}/>) : (<Desktop/>)}
+      {isMobile ? <Mobile /> : <Desktop />}
     </>
   );
 }
 
 
+/* -------------------- DESKTOP -------------------- */
+
 function Desktop() {
+  const navigate = useNavigate();
+
   return (
     <aside className={Desk.aside}>
       {MENU.map((item, index) => (
         <div key={index} className={Desk.menu} tabIndex={-1}>
-          <button className={Desk.button} tabIndex={-1}>
+          <button
+            onClick={() => navigate(item.path)}
+            className={Desk.button}
+            tabIndex={-1}
+          >
             <span id={Desk.icon}>{item.icon}</span>
-            <span id={Desk.text}><h1>{item.name}</h1></span>
+            <span id={Desk.text}>
+              <h1>{item.name}</h1>
+            </span>
             <span id={Desk.arrow}>
               {item.children.length > 0 ? <Arrow /> : null}
             </span>
           </button>
-          {item.children.length > 0 ? <Subdesktop Children={item.children} /> : null}
+
+          {item.children.length > 0 ? (
+            <Subdesktop Children={item.children} />
+          ) : null}
         </div>
       ))}
     </aside>
   );
 }
 
-function Subdesktop({Children}){
-  return(
+function Subdesktop({ Children }) {
+  const navigate = useNavigate();
+
+  return (
     <div className={Desk.submenu}>
-      {Children.map((item,index) => (
-        <button key={index} tabIndex={-1}><h1>{item.name}</h1></button>
+      {Children.map((item, index) => (
+        <button
+          onClick={() => navigate(item.path)}
+          key={index}
+          tabIndex={-1}
+        >
+          <h1>{item.name}</h1>
+        </button>
       ))}
     </div>
-  )
+  );
 }
 
+/* -------------------- MOBILE -------------------- */
 
 function Mobile() {
   const [open, setOpen] = useState(false);
@@ -235,19 +258,29 @@ function Menu({ item }) {
 
   return (
     <div className={Phone.main}>
-      <MenuMain item={item} subOpen={subOpen} setSubOpen={setSubOpen} />
+      <MenuMain
+        item={item}
+        subOpen={subOpen}
+        setSubOpen={setSubOpen}
+      />
       <SubMenu children={item.children} open={subOpen} />
     </div>
   );
 }
 
-
 function MenuMain({ item, subOpen, setSubOpen }) {
+  const navigate = useNavigate();
+
   return (
     <div className={Phone.menu}>
-      <button className={Phone.menuBTN}>
+      <button
+        className={Phone.menuBTN}
+        onClick={() => navigate(item.path)}
+      >
         <span id={Phone.icon}>{item.icon}</span>
-        <span id={Phone.text}><h1>{item.name}</h1></span>
+        <span id={Phone.text}>
+          <h1>{item.name}</h1>
+        </span>
       </button>
 
       {item.children.length > 0 && (
@@ -256,7 +289,6 @@ function MenuMain({ item, subOpen, setSubOpen }) {
     </div>
   );
 }
-
 
 function SubArrow({ open, setSubOpen }) {
   return (
@@ -270,12 +302,27 @@ function SubArrow({ open, setSubOpen }) {
 }
 
 function SubMenu({ children, open }) {
+  const navigate = useNavigate();
+
   return (
     <div className={`${Phone.submenu} ${open ? Phone.open : ""}`}>
       {children.map((c, i) => (
-        <button key={i} className={Phone.subbtn}>
+        <button
+          key={i}
+          className={Phone.subbtn}
+          onClick={() => navigate(c.path)}
+          style={{
+            background: c.bg
+              ? `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${c.bg})`
+              : "transparent",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <span className={Phone.overlay} />
-          <h2>{c.name}</h2>
+          <h2 style={{ color: c.color || "var(--color_text)" }}>
+            {c.name}
+          </h2>
         </button>
       ))}
     </div>
