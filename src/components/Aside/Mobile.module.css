@@ -166,3 +166,19 @@
 .submenu.open .subbtn:nth-child(8) { transition-delay: 0.55s; }
 .submenu.open .subbtn:nth-child(9) { transition-delay: 0.60s; }
 .submenu.open .subbtn:nth-child(10) { transition-delay: 0.65s; }
+
+
+
+
+@media (orientation: landscape) {
+    .Asidecontainer{
+        width: 25%;
+        left: -25%;
+    }
+    .burger{
+        height: calc(var(--header_height_portr) + 2px);
+    }
+    .menu{
+        height: var(--header_height_portr);
+    }
+}
