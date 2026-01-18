@@ -1,13 +1,14 @@
 import Desk from "./Desktop.module.css"
-import Portrait from "./Portrait.module.css"
-import Paysage from "./Paysage.module.css"
+import Portrait from "./Mobile.module.css"
 import Logo from "../../data/Logo";
+
+
 export default function Header({ device }) {
-  const { isMobile, isPortrait } = device;
+  const { isMobile } = device;
 
   return (
     <>
-      {isMobile ? (<Mobile device={device}/>) : (<Desktop/>)}
+      {isMobile ? (<Mobile/>) : (<Desktop/>)}
     </>
   );
 }
@@ -28,10 +29,9 @@ function Desktop(){
 }
 
 
-function Mobile({device}){
-    const { isMobile, isPortrait } = device;
+function Mobile(){
     return(
-        <header className={isPortrait ? (Portrait.header) : (Paysage.header)}>
+        <header className={Portrait.header}>
             <div>
                 <Logo/>
             </div>

@@ -1,25 +1,24 @@
 import Desk from "./Desktop.module.css"
-import Portrait from "./Portrait.module.css"
-import Paysage from "./Paysage.module.css"
+import Phone from "./Mobile.module.css"
 import { Arrow,Accueil,Classes,Settings,Races,Rules,Codex,Objets,Quest,Tools,History,Univers } from "../../data/Svgs"
 import { useState } from "react"
 const MENU = [
   {
     name: "Accueil",
     path: "/accueil",
-    icon: <Accueil/>,
+    icon: <Accueil />,
     children: [],
   },
   {
     name: "Règles",
     path: "/regles",
-    icon: <Rules/>,
+    icon: <Rules />,
     children: [],
   },
   {
     name: "Classes",
     path: "/classes",
-    icon: <Classes/>,
+    icon: <Classes />,
     children: [
       {
         name: "Guerrier",
@@ -66,84 +65,100 @@ const MENU = [
   {
     name: "Races",
     path: "/races",
-    icon: <Races/>,
+    icon: <Races />,
     children: [
-        {
-          name: "Fizzarains",
-          path: "/races/fizzarains",
-        },
-        {
-          name: "Goliath",
-          path: "/races/goliath",
-        },
-        {
-          name: "Nains",
-          path: "/races/nains",
-        },
-        {
-          name: "Elfes",
-          path: "/races/elfes",
-        },
-        {
-          name: "Humains",
-          path: "/races/humains",
-        },
-        {
-          name: "Orcs",
-          path: "/races/orcs",
-        },
-        {
-          name: "Drakéides",
-          path: "/races/drakeides",
-        },
-        {
-          name: "Tieffelin",
-          path: "/races/tieffelin",
-        },
+      {
+        name: "Fizzarains",
+        path: "/races/fizzarains",
+        bg: "https://png.pngtree.com/thumb_back/fh260/background/20241002/pngtree-submerged-fantasy-underwater-castle-ruins-in-glowing-ethereal-seascape-landscape-sunken-image_16291836.jpg",
+        color: "aqua",
+      },
+      {
+        name: "Goliath",
+        path: "/races/goliath",
+        bg: "https://img.freepik.com/photos-gratuite/paysage-formations-rocheuses-naturelles_23-2151723072.jpg?semt=ais_hybrid&w=740&q=80",
+        color: "lightgray",
+      },
+      {
+        name: "Nains",
+        path: "/races/nains",
+        bg: "https://i.pinimg.com/736x/8e/90/10/8e90101cb16e24f01c1ca8a9af4db01a.jpg",
+        color: "#d07b40",
+      },
+      {
+        name: "Elfes",
+        path: "/races/elfes",
+        bg: "https://fantasy.bnf.fr/fr/albums/imaginaire-foret/img/introtablette.jpg",
+        color: "lightgreen",
+      },
+      {
+        name: "Humains",
+        path: "/races/humains",
+        bg: "https://i.pinimg.com/originals/e5/93/24/e59324bedf58d93ec67728e8ff5e9c10.jpg",
+        color: "lightgray",
+      },
+      {
+        name: "Orcs",
+        path: "/races/orcs",
+        bg: "https://static9.depositphotos.com/1222912/1142/i/450/depositphotos_11420613-stock-photo-desert-fantasy-landscape.jpg",
+        color: "#30ad02",
+      },
+      {
+        name: "Drakéides",
+        path: "/races/drakeides",
+        bg: "https://i.pinimg.com/236x/3b/94/64/3b9464dffab75701c1c0c7112e045bfe.jpg",
+        color: "red",
+      },
+      {
+        name: "Tieffelin",
+        path: "/races/tieffelin",
+        bg: "https://preview.redd.it/hell-concept-art-v0-vtiyb7uliewe1.jpeg?width=640&crop=smart&auto=webp&s=3916377092f573a0414f9e7df43eddce18da5f2b",
+        color: "orange",
+      },
     ],
   },
   {
     name: "Objets",
     path: "/objects",
-    icon: <Objets/>,
+    icon: <Objets />,
     children: [],
   },
   {
     name: "Quêtes",
     path: "/quetes",
-    icon: <Quest/>,
+    icon: <Quest />,
     children: [],
   },
   {
     name: "Codex",
     path: "/codex",
-    icon: <Codex/>,
+    icon: <Codex />,
     children: [],
   },
   {
     name: "Univers",
     path: "/univers",
-    icon: <Univers/>,
+    icon: <Univers />,
     children: [],
   },
   {
     name: "Historique",
     path: "/historique",
-    icon: <History/>,
+    icon: <History />,
     children: [],
   },
   {
     name: "Outils",
     path: "/outils",
-    icon: <Tools/>,
+    icon: <Tools />,
     children: [],
   },
   {
     name: "Paramètres",
     path: "/settings",
-    icon: <Settings/>,
+    icon: <Settings />,
     children: [],
-  }
+  },
 ];
 
 
@@ -191,19 +206,78 @@ function Subdesktop({Children}){
 }
 
 
-function Mobile({ device }) {
-  const { isPortrait } = device;
-  const style = isPortrait ? Portrait : Paysage;
+function Mobile() {
   const [open, setOpen] = useState(false);
 
-  const opened = open ? style.open : "";
+  return (
+    <div className={`${Phone.Asidecontainer} ${open ? Phone.open : ""}`}>
+      <Burger open={open} setOpen={setOpen} />
+
+      <aside className={Phone.aside}>
+        {MENU.map((item, index) => (
+          <Menu key={index} item={item} />
+        ))}
+      </aside>
+    </div>
+  );
+}
+
+function Burger({ open, setOpen }) {
+  return (
+    <button className={Phone.burger} onClick={() => setOpen(!open)}>
+      <Arrow />
+    </button>
+  );
+}
+
+function Menu({ item }) {
+  const [subOpen, setSubOpen] = useState(false);
 
   return (
-    <aside className={`${style.aside} ${opened}`}>
-      <button
-        className={style.burger}
-        onClick={() => setOpen(!open)}
-      ></button>
-    </aside>
+    <div className={Phone.main}>
+      <MenuMain item={item} subOpen={subOpen} setSubOpen={setSubOpen} />
+      <SubMenu children={item.children} open={subOpen} />
+    </div>
+  );
+}
+
+
+function MenuMain({ item, subOpen, setSubOpen }) {
+  return (
+    <div className={Phone.menu}>
+      <button className={Phone.menuBTN}>
+        <span id={Phone.icon}>{item.icon}</span>
+        <span id={Phone.text}><h1>{item.name}</h1></span>
+      </button>
+
+      {item.children.length > 0 && (
+        <SubArrow open={subOpen} setSubOpen={setSubOpen} />
+      )}
+    </div>
+  );
+}
+
+
+function SubArrow({ open, setSubOpen }) {
+  return (
+    <button
+      className={`${Phone.arrow} ${open ? Phone.open : ""}`}
+      onClick={() => setSubOpen(!open)}
+    >
+      <Arrow />
+    </button>
+  );
+}
+
+function SubMenu({ children, open }) {
+  return (
+    <div className={`${Phone.submenu} ${open ? Phone.open : ""}`}>
+      {children.map((c, i) => (
+        <button key={i} className={Phone.subbtn}>
+          <span className={Phone.overlay} />
+          <h2>{c.name}</h2>
+        </button>
+      ))}
+    </div>
   );
 }

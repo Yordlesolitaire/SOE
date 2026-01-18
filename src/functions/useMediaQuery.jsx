@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 
-export function useMediaQuery(query) {
-    const [matches, setMatches] = useState(
-        window.matchMedia(query).matches
-    );
+export function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(
+    window.matchMedia("(max-width: 768px)").matches
+  );
 
-    useEffect(() => {
-        const media = window.matchMedia(query);
-        const listener = () => setMatches(media.matches);
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 768px)");
 
-        media.addEventListener("change", listener);
-        return () => media.removeEventListener("change", listener);
-    }, [query]);
+    const listener = () => setIsMobile(media.matches);
 
-    return matches;
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, []);
+
+  return isMobile;
 }

@@ -1,6 +1,5 @@
 import Desk from "./Desktop.module.css"
-import Portrait from "./Portrait.module.css"
-import Paysage from "./Paysage.module.css"
+import Phone from "./Mobile.module.css"
 
 export default function Content({ device, children }) {
   const { isMobile } = device;
@@ -27,11 +26,9 @@ function Desktop({ children }) {
 }
 
 
-function Mobile({ device, children }) {
-  const { isPortrait } = device;
-
+function Mobile({ children }) {
   return (
-    <div className={isPortrait ? Portrait.content : Paysage.content}>
+    <div className={Phone.content}>
       {children}
     </div>
   );

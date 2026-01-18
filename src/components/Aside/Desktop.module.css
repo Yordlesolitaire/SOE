@@ -134,7 +134,22 @@
     transition-delay: 0s;
     transition: opacity 0.1s ease-in-out;
 }
+.submenu button {
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+}
 
+.submenu button:hover {
+  border-top-color: var(--color_border);
+  border-bottom-color: var(--color_border);
+  background-color: var(--color_dropdown_hover);
+}
+
+/* si tu veux aussi un overlay sur les bg */
+.submenu button.hasBg:hover {
+  background-image: none; /* ou garde l'image + overlay */
+}   
 .aside .menu:hover .submenu button{
     width: 100%;
     opacity: 1;
