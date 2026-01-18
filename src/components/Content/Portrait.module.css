@@ -1,7 +1,7 @@
 .content{
     position: relative;
     width: 100%;
-    height: calc(100% - var(--header_height));
+    height: 100%;
     background-color: var(--color_bg);
     display: flex;
     flex-direction: column;

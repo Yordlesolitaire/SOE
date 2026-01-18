@@ -1,13 +1,19 @@
 import Desk from "./Desktop.module.css"
 import Portrait from "./Portrait.module.css"
 import Paysage from "./Paysage.module.css"
-import { Arrow,Accueil,Classes,Settings,Races } from "../../data/Svgs"
-
+import { Arrow,Accueil,Classes,Settings,Races,Rules,Codex,Objets,Quest,Tools,History,Univers } from "../../data/Svgs"
+import { useState } from "react"
 const MENU = [
   {
     name: "Accueil",
     path: "/accueil",
     icon: <Accueil/>,
+    children: [],
+  },
+  {
+    name: "Règles",
+    path: "/regles",
+    icon: <Rules/>,
     children: [],
   },
   {
@@ -57,7 +63,7 @@ const MENU = [
       },
     ],
   },
-    {
+  {
     name: "Races",
     path: "/races",
     icon: <Races/>,
@@ -95,6 +101,42 @@ const MENU = [
           path: "/races/tieffelin",
         },
     ],
+  },
+  {
+    name: "Objets",
+    path: "/objects",
+    icon: <Objets/>,
+    children: [],
+  },
+  {
+    name: "Quêtes",
+    path: "/quetes",
+    icon: <Quest/>,
+    children: [],
+  },
+  {
+    name: "Codex",
+    path: "/codex",
+    icon: <Codex/>,
+    children: [],
+  },
+  {
+    name: "Univers",
+    path: "/univers",
+    icon: <Univers/>,
+    children: [],
+  },
+  {
+    name: "Historique",
+    path: "/historique",
+    icon: <History/>,
+    children: [],
+  },
+  {
+    name: "Outils",
+    path: "/outils",
+    icon: <Tools/>,
+    children: [],
   },
   {
     name: "Paramètres",
@@ -151,9 +193,17 @@ function Subdesktop({Children}){
 
 function Mobile({ device }) {
   const { isPortrait } = device;
+  const style = isPortrait ? Portrait : Paysage;
+  const [open, setOpen] = useState(false);
+
+  const opened = open ? style.open : "";
 
   return (
-    <aside className={isPortrait ? Portrait.aside : Paysage.aside}>
+    <aside className={`${style.aside} ${opened}`}>
+      <button
+        className={style.burger}
+        onClick={() => setOpen(!open)}
+      ></button>
     </aside>
   );
 }

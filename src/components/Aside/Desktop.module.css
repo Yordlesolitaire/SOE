@@ -118,9 +118,11 @@
   background: var(--color_aside_bg);
 
   transition: all 0.3s ease-in-out;
+  visibility: hidden;
 }
 
 .aside .menu:hover .submenu{
+    visibility: visible;
     width: 15rem;
     border: solid 2px var(--color_border);
     border-left:none ;

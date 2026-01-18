@@ -1,8 +1,18 @@
-.content{
-    width: 100%;
-    height: calc(100% - var(--header_height_portr));
-    background-color: var(--color_bg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.aside{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50vw;
+    left: 0;
+    background-color: brown;
+}
+
+.burger{
+    position: absolute;
+    top: var(--header_height);
+    height: var(--header_height);
+    aspect-ratio: 1/1;
+    left: 100%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
 }
