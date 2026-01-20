@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import "./style/reset.css"
+import SoeLayout from "./Layout/SOE";
+import MyJdrLayout from "./Layout/Myjdr";
 
-function App() {
+import SoeHome from "./pages/SOE/SOEhome";
+import MyJdrHome from "./pages/MyJDR/MYJDRhome";
+import SoeRace from "./pages/SOE/race";
+
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+
+      <Route path="/soe" element={<SoeLayout />}>
+        <Route index element={<SoeHome />} />
+        <Route path="race" element={<SoeRace />} />
+      </Route>
+
+      <Route path="/myjdr" element={<MyJdrLayout />}>
+        <Route index element={<MyJdrHome />} />
+      </Route>
+
+    </Routes>
   );
 }
-
-export default App;
