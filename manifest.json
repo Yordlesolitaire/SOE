@@ -1,6 +1,6 @@
 {
-  "short_name": "Shadows of Erdalorn",
-  "name": "Shadows of Erdalorn",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
