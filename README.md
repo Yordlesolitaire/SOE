@@ -1,1 +1,0 @@
-https://yordlesolitaire.github.io/SOE/
