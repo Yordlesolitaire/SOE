@@ -5,23 +5,7 @@
 }
 
 html,body{
+    height: 100%;
+    width: 100%;
     background-color: black;
-    color: aliceblue;
-    height: 100%;
-    width: 100%;
-}
-
-header{
-    position: fixed;
-    height: 5rem;
-    top: 1rem;
-    left: 1rem;
-    right: 1rem;
-    border-radius: 1rem;
-    border: solid 2px;
-}
-
-#root{
-    width: 100%;
-    height: 100%;
 }

@@ -1,0 +1,24 @@
+.header{
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 4rem;
+    background-color: aqua;
+    border: solid 2px var(--border);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header div{
+    padding: 5px;
+    height: 100%;
+    
+}
+
+.header div svg{
+    color: var(--text);
+}
+

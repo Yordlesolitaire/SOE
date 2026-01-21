@@ -1,16 +1,11 @@
-import { Outlet } from "react-router-dom";
-import style from "./MyJDR.module.css";
-import Header from "../../components/Header";
-
-export default function MyJdrLayout() {
-  return (
-    <div className={style.layout}>
-      <Header className={style.header} logo={<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="256.000000pt" height="256.000000pt" viewBox="0 0 256.000000 256.000000"
+export function Logo(){
+    return(
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ height="100%" viewBox="0 0 256.000000 256.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,256.000000) scale(0.100000,-0.100000)"
-fill="#a17845" stroke="none">
+fill="currentcolor" stroke="none">
 <path d="M1134 2537 c-3 -9 -3 -34 1 -55 14 -75 46 -131 113 -193 36 -34 57
 -59 46 -55 -31 9 -149 24 -154 19 -9 -8 43 -45 98 -70 66 -31 61 -40 -11 -19
 -54 16 -107 57 -107 83 0 16 -117 73 -150 73 -17 0 -18 -3 -9 -27 8 -22 6 -30
@@ -62,8 +57,6 @@ m-416 -49 c10 -6 -18 -11 -80 -13 -52 -2 -96 -2 -98 -1 -2 2 7 7 20 12 31 12
 -24 -18 -24 -21 -6 -22 132 -52 191 -125 245 -43 31 -93 40 -115 18z m268 -75
 c0 -13 -3 -13 -15 -3 -8 7 -12 16 -9 21 8 13 24 1 24 -18z"/>
 </g>
-</svg>} />
-      <Outlet />
-    </div>
-  );
+</svg>
+    )
 }
