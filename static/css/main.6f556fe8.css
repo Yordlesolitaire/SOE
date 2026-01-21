@@ -1,0 +1,2 @@
+*{box-sizing:border-box;margin:0;padding:0}body,html{background-color:#000;height:100%;width:100%}:root{--font:"Cinzel",sans-serif;--border:#a17845;--text:#a17845}.Header_header__mtodi{align-items:center;background-color:aqua;border:2px solid var(--border);border-radius:1rem;display:flex;height:4rem;justify-content:space-between;left:.5rem;position:fixed;right:.5rem;top:.5rem}.Header_header__mtodi div{height:100%;padding:5px}.Header_header__mtodi div svg{color:var(--text)}
+/*# sourceMappingURL=main.6f556fe8.css.map*/
