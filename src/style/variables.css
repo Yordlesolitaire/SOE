@@ -1,5 +1,9 @@
 :root{
+    --header_height:4rem;
     --font:"Cinzel",sans-serif;
-    --border:#a17845;
-    --text:#a17845;
+    --border:#8d844d;
+    --text:#8d844d;
+    --color1:#4D4A1F;
+    --color2:#273022;
+    --header_bg:radial-gradient(circle,#4D4A1F 50%, #273022 100%);
 }
