@@ -32,3 +32,20 @@
     color: var(--text);
 }
 
+@media (orientation: portrait) {
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 0;
+        height: 2rem;
+        border: none;
+        border-bottom: solid 2px var(--border);
+    }
+    .header div{
+        padding: 1px;
+    }
+    
+}

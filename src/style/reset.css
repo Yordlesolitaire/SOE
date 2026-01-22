@@ -7,5 +7,6 @@
 html,body{
     height: 100%;
     width: 100%;
-    background-color: black;
+    background: var(--BG_body);
+    background-color: #4D4A1F;
 }
