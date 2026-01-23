@@ -1,12 +1,11 @@
 .header{
     position: fixed;
-    top: 0.5rem;
-    left: 0.5rem;
-    right: 0.5rem;
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
     height: var(--header_height);
     background: var(--header_bg);
-    border: solid 2px var(--border);
-    border-radius: 1rem;
+    border-bottom: solid 2px var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
