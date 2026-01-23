@@ -1,10 +1,14 @@
 .nav{
-    position: fixed;
-    top: calc(0.5rem + var(--header_height) + 0.5rem);
-    left: 0.5rem;
-    bottom: 0.5rem;
-    background: var(--header_bg);
+    position: absolute;
     width: var(--header_height);
-    border-radius: 1rem;
-    border: solid 2px var(--border);
+    height: calc(100% - var(--header_height));;
+    left: 0;
+    background: var(--header_bg);
+    border-right: solid 2px var(--border);
+    transition: all 0.3s ease-in-out;
+}
+
+
+.nav:hover{
+    width: calc(var(--header_height) * 4);
 }

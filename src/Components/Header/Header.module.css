@@ -1,50 +1,26 @@
 .header{
-    position: fixed;
-    top: 0rem;
-    left: 0rem;
-    right: 0rem;
     height: var(--header_height);
-    background: var(--header_bg);
-    border-bottom: solid 2px var(--border);
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: var(--header_bg);
+    border-bottom: solid 2px var(--border);
+}
+
+.header h1{
+    font-size: clamp(1rem,4vw,2.5rem);
+    font-family: var(--font);
+    color: var(--text);
 }
 
 .header div{
-    padding: 5px;
     height: 100%;
-    border-right: solid 2px var(--border);
+    color: var(--border);
+    border-right:solid 2px var(--border) ;
+    padding: 5px;
 }
 
 .header div:last-child{
     transform: scaleX(-1);
-}
-
-.header h1{
-    font-family: var(--font);
-    color: var(--text);
-    font-size: clamp(1rem,4vw,2.5rem);
-}
-
-.header div svg{
-    color: var(--text);
-}
-
-@media (orientation: portrait) {
-    .header{
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        border-radius: 0;
-        height: 2rem;
-        border: none;
-        border-bottom: solid 2px var(--border);
-    }
-    .header div{
-        padding: 1px;
-    }
-    
 }

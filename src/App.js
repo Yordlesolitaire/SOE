@@ -7,7 +7,9 @@ export default function App() {
   return (
     <>
       <Header/>
-      <Nav/>
+      <div className="content">
+        <Nav />
+      </div>
     </>
   );
 }
