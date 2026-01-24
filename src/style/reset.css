@@ -9,14 +9,33 @@ html,body{
     width: 100%;
     background: var(--BG_body);
     background-color: #4D4A1F;
+
 }
 
 #root{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .content{
+    position: relative;
     width: 100%;
     height: calc(100% - var(--header_height));
+}
+
+
+
+@media (orientation: portrait) {
+    html,body{
+        height: 100vh;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    html,body{
+        height: 100vh;
+    }
 }

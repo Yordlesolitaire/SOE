@@ -13,3 +13,20 @@
   #120904
 );
 }
+
+
+
+
+
+@media (orientation: portrait) {
+  :root{
+    --header_height:2rem;
+  }
+}
+
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    :root{
+    --header_height:2rem;
+  }
+}
