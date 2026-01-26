@@ -1,12 +1,78 @@
-import style from "./Header.module.css"
-import { Logo } from "../SVGs/SVGs"
+import { Arrow, Logo } from "../SVGs/SVGs"
+import useIsMobile from "../../functions/iseMobile"
+import Desk from "./Desktop.module.css"
+import { useNavigate } from "react-router-dom";
+import { Children } from "react";
+const MENU = [
+  {
+    name: "Règles",
+    path: "/rules",
+    children: [],
+  },
+  {
+    name: "Classes",
+    path: "/classes",
+    children: [],
+  },
+  {
+    name: "Races",
+    path: "/races",
+    children: [
+      { name: "Humains", path: "/races/humains" },
+      { name: "Drakéides", path: "/races/drakeides" },
+      { name: "Elfes", path: "/races/elfes" },
+      { name: "Fizzarains", path: "/races/fizzarains" },
+      { name: "Nains", path: "/races/humains" },
+      { name: "Orc", path: "/races/drakeides" },
+      { name: "Tieffelins", path: "/races/elfes" },
+      { name: "Fizzarains", path: "/races/fizzarains" },
+    ],
+  },
+];
 
-export default function Header(){
-    return( 
-        <header className={style.header}>
-            <div><Logo/></div>
-            <h1>Shadows of Erdalorn</h1>
-            <div><Logo/></div>
+
+export default function Header() {
+  const isMobile = useIsMobile();
+
+  return (
+    <>
+      {isMobile ? null : <Desktop />}
+    </>
+  );
+}
+
+function Desktop(){
+    const navigate = useNavigate()
+    return(
+        <header className={Desk.header}>
+            <div className={Desk.logo}><Logo/></div>
+            <div className={Desk.content}>
+                <button className={Desk.title} onClick={() => navigate("/")}><h1>Shadows of Erdalorn</h1></button>
+                <NavDesk/>
+            </div>
+            <div className={Desk.logo}><Logo/></div>
         </header>
     )
+}
+
+
+
+function NavDesk() {
+  const navigate = useNavigate();
+
+  return (
+    <nav className={Desk.nav}>
+      {MENU.map((item, index) => (
+        <div className={Desk.Menu} key={index}>
+          <button
+            className={Desk.Menubtn}
+            onClick={() => navigate(item.path)}
+          >
+            <h2>{item.name}</h2>
+          </button>
+        </div>
+      ))}
+
+    </nav>
+  );
 }

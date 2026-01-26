@@ -24,6 +24,9 @@ html,body{
     position: relative;
     width: 100%;
     height: calc(100% - var(--header_height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
