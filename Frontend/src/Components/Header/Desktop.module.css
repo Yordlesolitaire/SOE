@@ -152,9 +152,10 @@
 .submenu{
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;             /* ← IMPORTANT */
+  transform: translate(-50%, -6px);
 
-  min-width: 100%;
+  width: calc(110% + 50px);
   background: var(--header_bg);
   border: 2px solid var(--border);
   border-radius: 1rem;
@@ -166,18 +167,18 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-6px);
 
   transition:
     opacity 0.2s ease,
     transform 0.2s ease;
 }
 
+
 .Menu:hover .submenu{
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translate(-50%, 0px);
 }
 
 /* ===== SUB BUTTON ===== */

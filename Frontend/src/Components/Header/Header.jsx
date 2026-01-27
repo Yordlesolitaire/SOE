@@ -3,51 +3,63 @@ import useIsMobile from "../../functions/iseMobile"
 import Desk from "./Desktop.module.css"
 import { useNavigate } from "react-router-dom";
 const MENU = [
-  {name: "Règles",
+  {
+    name: "Règles",
     path: "/rules",
     children: [],
   },
-  {name: "Classes",
+  {
+    name: "Classes",
     path: "/classes",
     children: [
-      {name:"Guerrier",path:"/classes/guerrier"},
-      {name:"Chasseur",path:"/classes/chasseur"},
+      { name: "Guerrier", path: "/classes/guerrier" },
+      { name: "Lamesombre", path: "/classes/lamesombre" },
+      { name: "Chasseur", path: "/classes/chasseur" },
+      { name: "Incarné", path: "/classes/incarne" },
+      { name: "Profanateur", path: "/classes/profanateur" },
+      { name: "artificier", path: "/classes/artificier" },
+      { name: "artiste martiale", path: "/classes/artiste-martiale" },
+      { name: "mage", path: "/classes/mage" },
+      { name: "barde", path: "/classes/barde" },
+      { name: "clerc", path: "/classes/clerc" },
     ],
   },
-  {name: "Races",
+  {
+    name: "Races",
     path: "/races",
     children: [
       { name: "Humains", path: "/races/humains" },
       { name: "Drakéides", path: "/races/drakeides" },
       { name: "Elfes", path: "/races/elfes" },
       { name: "Fizzarains", path: "/races/fizzarains" },
-      { name: "Nains", path: "/races/humains" },
-      { name: "Orc", path: "/races/drakeides" },
-      { name: "Tieffelins", path: "/races/elfes" },
-      { name: "Goliath", path: "/races/fizzarains" },
+      { name: "Nains", path: "/races/nains" },
+      { name: "Orc", path: "/races/orc" },
+      { name: "Tieffelins", path: "/races/tieffelins" },
+      { name: "Goliath", path: "/races/goliath" },
     ],
   },
   {
-    name:"Objets",
-    path:"/objets",
-    children:[],
+    name: "Objets",
+    path: "/objets",
+    children: [],
   },
-    {
-    name:"Atlas",
-    path:"/atlas",
-    children:[],
+  {
+    name: "Atlas",
+    path: "/atlas",
+    children: [],
   },
-      {
-    name:"Outils",
-    path:"/outils",
-    children:[],
+  {
+    name: "Outils",
+    path: "/outils",
+    children: [],
   },
-    {
-    name:"Paramètres",
-    path:"/settings",
-    children:[],
+  {
+    name: "Paramètres",
+    path: "/settings",
+    children: [],
   },
 ];
+
 
 
 export default function Header() {
