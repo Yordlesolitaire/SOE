@@ -2,20 +2,20 @@ import { Arrow, Logo } from "../SVGs/SVGs"
 import useIsMobile from "../../functions/iseMobile"
 import Desk from "./Desktop.module.css"
 import { useNavigate } from "react-router-dom";
-import { Children } from "react";
 const MENU = [
   {
     name: "Règles",
     path: "/rules",
     children: [],
   },
-  {
-    name: "Classes",
+  {name: "Classes",
     path: "/classes",
-    children: [],
+    children: [
+      {name:"Guerrier",path:"/classes/guerrier"},
+      {name:"Chasseur",path:"/classes/chasseur"},
+    ],
   },
-  {
-    name: "Races",
+  {name: "Races",
     path: "/races",
     children: [
       { name: "Humains", path: "/races/humains" },
@@ -25,7 +25,7 @@ const MENU = [
       { name: "Nains", path: "/races/humains" },
       { name: "Orc", path: "/races/drakeides" },
       { name: "Tieffelins", path: "/races/elfes" },
-      { name: "Fizzarains", path: "/races/fizzarains" },
+      { name: "Goliath", path: "/races/fizzarains" },
     ],
   },
 ];
@@ -64,12 +64,18 @@ function NavDesk() {
     <nav className={Desk.nav}>
       {MENU.map((item, index) => (
         <div className={Desk.Menu} key={index}>
-          <button
-            className={Desk.Menubtn}
-            onClick={() => navigate(item.path)}
-          >
+          <button className={Desk.Menubtn} onClick={() => navigate(item.path)}>
             <h2>{item.name}</h2>
+            {item.children.length > 0 ? <span><Arrow/></span> : null}
           </button>
+          {item.children.length > 0 ? 
+            <div className={Desk.submenu}>
+              {item.children.map((elt,index) => (
+                <button className={Desk.subbtn} onClick={() => navigate(elt.path)}><h4>{elt.name}</h4></button>
+              ))}
+            </div> 
+          
+          : null}
         </div>
       ))}
 

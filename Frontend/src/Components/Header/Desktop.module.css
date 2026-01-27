@@ -59,6 +59,10 @@
   border-bottom: solid 2px transparent;
 }
 
+.title h1{
+  font-size: clamp(1rem,2vw,1.5rem);
+}
+
 .title:hover{
   background-color: var(--hover_color);
   border-top: solid 2px var(--border);
@@ -68,11 +72,11 @@
 
 /* ======= Nav ========= */
 .nav{
+  position: relative;
   height: 100%;
   width: fit-content;
   gap: 1rem;
   min-width: 1rem;
-  background-color: aqua;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,18 +86,124 @@
 
 /* ==== MENU ====== */
 .Menu{
+  height: fit-content;
+  position: relative;
   width: fit-content;
-  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.Menubtn{
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.2s ease-in-out;
+  background: none;
+  border-radius: 1rem;
+  border: none;
+  border-top: solid 2px transparent;
+  border-bottom: solid 2px transparent;
+  color: var(--text);
+  padding: 0px 5px;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.Menubtn h2{
+  font-family: var(--font);
+}
+
+.Menubtn:hover svg,.Menu:hover .Menubtn svg{
+  transform: rotate(90deg);
+}
+
+.Menubtn:hover,.Menu:hover .Menubtn{
+    border-top: solid 2px var(--border);
+  border-bottom: solid 2px var(--border);
+  background-color: var(--hover_color);
+}
+
+.Menubtn span{
+  height: 100%;
+  aspect-ratio: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Menubtn span svg{
+  scale: 1.5;
+  transition: all 0.2s ease-in-out;
 }
 
 
-.Menubtn{
-  display: flex;
-  height: 100%;
-  background: none;
+
+.Menu:hover .submenu{
+  opacity: 1;
+}
+
+.submenu{
+  opacity: 0;
+  top: 100%;
+  position: absolute;
+  width: 110%;
+  height: fit-content;
+  min-height: 1rem;
+  border: solid 2px var(--border);
+  background: var(--header_bg);
   border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.subbtn{
+  width: 100%;
+  height: 2rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  border: none;
+      border-top: solid 2px transparent;
+  border-bottom: solid 2px transparent;
+  background: none;
+  font-family: var(--font);
+  color: var(--text);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.subbtn:hover{
+    border-top: solid 2px var(--border);
+  border-bottom: solid 2px var(--border);
+  background-color: var(--hover_color);
+}
+
+
+.subbtn:first-child{
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.subbtn:last-child{
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.subbtn:first-child:hover{
+  border-top-color: transparent;
+}
+
+.subbtn:last-child:hover{
+  border-bottom-color:transparent ;
+}
+
+.subbtn h4{
+  font-size: clamp(0.5rem,2vw,1rem);
 }
