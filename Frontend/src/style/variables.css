@@ -13,6 +13,10 @@
   #241509,
   #120904
 );
+
+  --fs-title: clamp(0.9rem, 2.2vw, 1.5rem);
+  --fs-menu: clamp(0.75rem, 1.4vw, 1.1rem);
+  --fs-submenu: clamp(0.7rem, 1.2vw, 1rem);
 }
 
 

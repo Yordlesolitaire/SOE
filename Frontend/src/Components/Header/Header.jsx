@@ -3,8 +3,7 @@ import useIsMobile from "../../functions/iseMobile"
 import Desk from "./Desktop.module.css"
 import { useNavigate } from "react-router-dom";
 const MENU = [
-  {
-    name: "Règles",
+  {name: "Règles",
     path: "/rules",
     children: [],
   },
@@ -27,6 +26,26 @@ const MENU = [
       { name: "Tieffelins", path: "/races/elfes" },
       { name: "Goliath", path: "/races/fizzarains" },
     ],
+  },
+  {
+    name:"Objets",
+    path:"/objets",
+    children:[],
+  },
+    {
+    name:"Atlas",
+    path:"/atlas",
+    children:[],
+  },
+      {
+    name:"Outils",
+    path:"/outils",
+    children:[],
+  },
+    {
+    name:"Paramètres",
+    path:"/settings",
+    children:[],
   },
 ];
 
